@@ -6,7 +6,7 @@
 	"license":"LGPL-3.0-or-later",
 	"authors":[
 		{
-			"name":"Armin Frey",
+			"name":"Armin Frey"
 		}
 	],
 	"support":{
@@ -15,7 +15,7 @@
 	},
 	"require":{
 		"php":">=8.0",
-		"contao/core-bundle":"~5.0",
+		"contao/core-bundle":"~5.0"
 	},
 	"extra":{
 		"contao":{
