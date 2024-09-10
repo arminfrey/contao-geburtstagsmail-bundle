@@ -1,25 +1,26 @@
 <?php
 
-/*
- * This file is part of BirthdayMailer
- * 
- * (c) Armin Frey 2022 <webmaster@krettenweiber.de>
- * @license GPL-3.0-or-later
- * For the full copyright and license information,
- * please view the LICENSE file that was distributed with this source code.
- * @link https://github.com/freyar/contao-jugend-bundle
- */
-
-use Arminfrey\BirthdayMailer\Model\BirthdayMailerModel;
-
 /**
- * Backend modules
+ * -------------------------------------------------------------------------
+ * BACK END MODULES
+ * -------------------------------------------------------------------------
  */
-$GLOBALS['BE_MOD']['BirthdayMailer_module']['BirthdayMailer_collection'] = array(
-    'tables' => array('tl_birthdaymailer')
+
+// Add configuration to Backend -> Accounts
+$GLOBALS['BE_MOD']['accounts']['BirthdayMailer'] = array
+(
+	'tables'           => array('tl_birthdaymailer'),
+	'icon'             => 'system/modules/BirthdayMailer/assets/icon.png',
+	'sendBirthdayMail' => array('BirthdayMailSender', 'sendBirthdayMailManually'), 
 );
 
 /**
- * Models
+ * -------------------------------------------------------------------------
+ * CRON
+ * -------------------------------------------------------------------------
  */
-$GLOBALS['TL_MODELS']['tl_birthdaymailer'] = BirthdayMailerModel::class;
+
+// Daily cron job to send birthday mails
+$GLOBALS['TL_CRON']['daily'][] = array('BirthdayMailSender', 'sendBirthdayMail');
+
+?>
