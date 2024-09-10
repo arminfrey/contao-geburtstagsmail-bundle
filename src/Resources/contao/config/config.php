@@ -10,7 +10,7 @@
 $GLOBALS['BE_MOD']['accounts']['BirthdayMailer'] = array
 (
 	'tables'           => array('tl_birthdaymailer'),
-	'icon'             => 'system/modules/BirthdayMailer/assets/icon.png',
+	'icon'             => 'bundles/BirthdayMailer/assets/icon.png',
 	'sendBirthdayMail' => array('BirthdayMailSender', 'sendBirthdayMailManually'), 
 );
 
