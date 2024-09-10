@@ -94,27 +94,19 @@ class BirthdayMailSender extends \Backend
 	 */
 	public function sendBirthdayMail()
 	{
-		// first check if required extension 'associategroups' is installed
-		if (!in_array('associategroups', $this->Config->getActiveModules()))
-		{
-			$this->log('BirthdayMailSender: Extension "associategroups" is required!', 'BirthdayMailSender sendBirthdayMail()', TL_ERROR);
-			return false;
-		}
-		
 		$alreadySendTo = array();
 		$notSendCauseOfError = array();
 		$notSendCauseOfAbortion = array();
 		
 		$config = $this->Database->prepare("SELECT tl_member.*, "
-												. "tl_member_group.name as memberGroupName, tl_member_group.disable as memberGroupDisable, tl_member_group.start as memberGroupStart, tl_member_group.stop as memberGroupStop, "
-												. "tl_birthdaymailer.sender as mailSender, tl_birthdaymailer.senderName as mailSenderName, tl_birthdaymailer.mailCopy as mailCopy, tl_birthdaymailer.mailBlindCopy as mailBlindCopy, "
-												. "tl_birthdaymailer.mailUseCustomText as mailUseCustomText, tl_birthdaymailer.mailTextKey as mailTextKey "
-												. "FROM tl_member "
-												. "JOIN tl_member_to_group ON tl_member_to_group.member_id = tl_member.id "
-												. "JOIN tl_member_group ON tl_member_group.id = tl_member_to_group.group_id "
-												. "JOIN tl_birthdaymailer ON tl_birthdaymailer.membergroup = tl_member_group.id "
-												. "ORDER BY tl_member.id, tl_birthdaymailer.priority DESC")
-											 ->execute();
+			. "tl_member_group.name as memberGroupName, tl_member_group.disable as memberGroupDisable, tl_member_group.start as memberGroupStart, tl_member_group.stop as memberGroupStop, "
+			. "tl_birthdaymailer.sender as mailSender, tl_birthdaymailer.senderName as mailSenderName, tl_birthdaymailer.mailCopy as mailCopy, tl_birthdaymailer.mailBlindCopy as mailBlindCopy, "
+			. "tl_birthdaymailer.mailUseCustomText as mailUseCustomText, tl_birthdaymailer.mailTextKey as mailTextKey "
+			. "FROM tl_member "
+			. "JOIN tl_member_group ON tl_member_group.id = CONVERT(tl_member.groups using UTF8) "
+			. "JOIN tl_birthdaymailer ON tl_birthdaymailer.membergroup = tl_member_group.id "
+			. "ORDER BY tl_member.id, tl_birthdaymailer.priority DESC")
+			 ->execute();
 											
 		if($config->numRows < 1)
 		{
