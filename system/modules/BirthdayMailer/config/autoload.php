@@ -16,7 +16,7 @@
  */
 ClassLoader::addNamespaces(array
 (
-	'BirthdayMailer',
+	'BirthdayMailer_kw',
 ));
 
 
@@ -26,7 +26,7 @@ ClassLoader::addNamespaces(array
 ClassLoader::addClasses(array
 (
 	// Classes
-	'BirthdayMailer\BirthdayMailSender' => 'system/modules/BirthdayMailer/classes/BirthdayMailSender.php',
+	'BirthdayMailer_kw\BirthdayMailSender' => 'system/modules/BirthdayMailer/classes/BirthdayMailSender.php',
 ));
 
 
