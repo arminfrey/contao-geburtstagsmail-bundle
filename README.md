@@ -1,40 +1,7 @@
-[![Latest Version on Packagist](http://img.shields.io/packagist/v/cliffparnitzky/birthday-mailer.svg?style=flat)](https://packagist.org/packages/cliffparnitzky/birthday-mailer)
-[![Installations via composer per month](http://img.shields.io/packagist/dm/cliffparnitzky/birthday-mailer.svg?style=flat)](https://packagist.org/packages/cliffparnitzky/birthday-mailer)
-[![Installations via composer total](http://img.shields.io/packagist/dt/cliffparnitzky/birthday-mailer.svg?style=flat)](https://packagist.org/packages/cliffparnitzky/birthday-mailer)
-
 Contao Extension: BirthdayMailer
 ================================
 
 Sends a birthday email to all the members having their birthday on the current day.
-
-
-Installation
-------------
-
-Install the extension via composer: [cliffparnitzky/birthday-mailer](https://packagist.org/packages/cliffparnitzky/birthday-mailer).
-
-If you prefer to install it manually, download the latest release here: https://github.com/cliffparnitzky/BirthdayMailer/releases
-
-
-Tracker
--------
-
-https://github.com/cliffparnitzky/BirthdayMailer/issues
-
-
-Compatibility
--------------
-
-- Contao version >= 3.2.0 ... <  3.6.0
-- Contao version >= 4.4.0
-
-
-Dependency
-----------
-
-This extension is dependent on the following extensions:
-
-- [[friends-of-contao/contao-associategroups]](https://packagist.org/packages/friends-of-contao/contao-associategroups)
 
 
 Inserttags
