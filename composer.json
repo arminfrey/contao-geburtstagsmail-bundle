@@ -19,10 +19,10 @@
 	},
 	"autoload": {
         "psr-4": {
-            "Contao\\GeburtstagsmailBundle\\": "src/"
+            "Arminfrey\\GeburtstagsmailBundle\\": "src/"
         }
     },
 	"extra":{
-		"contao-manager-plugin": "Contao\\GeburtstagsmailBundle\\ContaoManager\\Plugin"
+		"contao-manager-plugin": "Arminfrey\\GeburtstagsmailBundle\\ContaoManager\\Plugin"
 	}
 }
