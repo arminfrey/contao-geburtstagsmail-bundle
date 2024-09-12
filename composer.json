@@ -18,10 +18,19 @@
 		"contao/core-bundle":"^5.0"
 	},
 	"autoload": {
-        "psr-4": {
-            "Arminfrey\\GeburtstagsmailBundle\\": "src/"
-        }
-    },
+        	"psr-4": {
+            		"Arminfrey\\GeburtstagsmailBundle\\": "src/"
+       		 },
+		"classmap": [
+            		"src/Resources/contao"
+        		],
+       		"exclude-from-classmap": [
+           		"src/Resources/contao/config",
+            		"src/Resources/contao/dca",
+            		"src/Resources/contao/languages",
+            		"src/Resources/contao/templates"
+        	]
+    	},
 	"extra":{
 		"contao-manager-plugin": "Arminfrey\\GeburtstagsmailBundle\\ContaoManager\\Plugin"
 	}
