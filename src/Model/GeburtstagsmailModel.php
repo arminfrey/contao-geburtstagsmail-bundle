@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /*
- * This file is part of BirthdayMailer.
+ * This file is part of GeburtstagsmailBundle.
  * 
  * (c) Armin Frey 2022 <webmaster@krettenweiber.de>
  * @license GPL-3.0-or-later
@@ -12,17 +12,17 @@ declare(strict_types=1);
  * @link https://github.com/arminfrey/BirthdayMailer
  */
 
-namespace Arminfrey\BirthdayMailer\Model;
+namespace Arminfrey\GeburtstagsmailBundle\Model;
 
 use Contao\Model;
 
 /**
- * Class BirthdayMailerModel
+ * Class GeburtstagsmailModel
  *
- * @package Arminfrey\BirthdayMailer\Model
+ * @package Arminfrey\GeburtstagsmailBundle\Model
  */
-class JungbuettelModel extends Model
+class GeburtstagsmailModel extends Model
 {
-    protected static $strTable = 'tl_birthdaymailer';
+    protected static $strTable = 'tl_geburtstagsmail';
 
 }
