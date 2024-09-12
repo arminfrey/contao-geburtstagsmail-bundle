@@ -5,7 +5,7 @@ namespace Arminfrey\GeburtstagsmailBundle;
 use Contao\Backend;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class GeburtstagsmailBundle extends \Backend
+class GeburtstagsmailBundle extends Bundle
 {
     public function getPath(): string
     {
