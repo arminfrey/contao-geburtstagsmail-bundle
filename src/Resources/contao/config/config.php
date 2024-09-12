@@ -11,7 +11,7 @@ $GLOBALS['BE_MOD']['accounts']['Geburtstagsmail'] = array
 (
 	'tables'           => array('tl_geburtstagsmail'),
 	'icon'             => '../assets/icon.png',
-	'sendBirthdayMail' => array('GeburtstagsmailSender', 'sendBirthdayMailManually'), 
+	'sendBirthdayMail' => array('GeburtstagsmailBundle', 'sendBirthdayMailManually'), 
 );
 
 /**
@@ -21,6 +21,6 @@ $GLOBALS['BE_MOD']['accounts']['Geburtstagsmail'] = array
  */
 
 // Daily cron job to send birthday mails
-$GLOBALS['TL_CRON']['daily'][] = array('GeburtstagsmailSender', 'sendBirthdayMail');
+$GLOBALS['TL_CRON']['daily'][] = array('GeburtstagsmailBundle', 'sendBirthdayMail');
 
 ?>
