@@ -31,25 +31,25 @@ class GeburtstagsmailBundle extends \Backend
 			// Create template object
 			$objTemplate = new \BackendTemplate('be_birthday-mailer');
 			$objTemplate->backLink = '<a href="'.ampersand(str_replace('&key=sendBirthdayMail', '', $this->Environment->request)).'" class="header_back" title="'.specialchars($GLOBALS['TL_LANG']['MSC']['backBT']).'" accesskey="b">'.$GLOBALS['TL_LANG']['MSC']['backBT'].'</a>';
-			$objTemplate->headline = $GLOBALS['TL_LANG']['tl_birthdaymailer']['manualExecution']['headline'];
-			$objTemplate->sendingHeadline = $GLOBALS['TL_LANG']['tl_birthdaymailer']['manualExecution']['sendingHeadline'];
-			$objTemplate->success = sprintf($GLOBALS['TL_LANG']['tl_birthdaymailer']['manualExecution']['successMessage'], $result['success']);
+			$objTemplate->headline = $GLOBALS['TL_LANG']['tl_geburtstagsmail']['manualExecution']['headline'];
+			$objTemplate->sendingHeadline = $GLOBALS['TL_LANG']['tl_geburtstagsmail']['manualExecution']['sendingHeadline'];
+			$objTemplate->success = sprintf($GLOBALS['TL_LANG']['tl_geburtstagsmail']['manualExecution']['successMessage'], $result['success']);
 			
 			$objTemplate->failed = sizeof($result['failed']) > 0;
-			$objTemplate->failureMessage = sprintf($GLOBALS['TL_LANG']['tl_birthdaymailer']['manualExecution']['failureMessage'], sizeof($result['failed']));
-			$objTemplate->failureTableHead = $GLOBALS['TL_LANG']['tl_birthdaymailer']['manualExecution']['failureTableHead'];
+			$objTemplate->failureMessage = sprintf($GLOBALS['TL_LANG']['tl_geburtstagsmail']['manualExecution']['failureMessage'], sizeof($result['failed']));
+			$objTemplate->failureTableHead = $GLOBALS['TL_LANG']['tl_geburtstagsmail']['manualExecution']['failureTableHead'];
 			$objTemplate->failures = $result['failed'];
-			$objTemplate->failureInfo = $GLOBALS['TL_LANG']['tl_birthdaymailer']['manualExecution']['failureInfo'];
+			$objTemplate->failureInfo = $GLOBALS['TL_LANG']['tl_geburtstagsmail']['manualExecution']['failureInfo'];
 			
 			$objTemplate->aborted = sizeof($result['aborted']) > 0;
-			$objTemplate->abortionMessage = sprintf($GLOBALS['TL_LANG']['tl_birthdaymailer']['manualExecution']['abortionMessage'], sizeof($result['aborted']));
-			$objTemplate->abortionTableHead = $GLOBALS['TL_LANG']['tl_birthdaymailer']['manualExecution']['abortionTableHead'];
+			$objTemplate->abortionMessage = sprintf($GLOBALS['TL_LANG']['tl_geburtstagsmail']['manualExecution']['abortionMessage'], sizeof($result['aborted']));
+			$objTemplate->abortionTableHead = $GLOBALS['TL_LANG']['tl_geburtstagsmail']['manualExecution']['abortionTableHead'];
 			$objTemplate->abortions = $result['aborted'];
-			$objTemplate->abortionInfo = $GLOBALS['TL_LANG']['tl_birthdaymailer']['manualExecution']['abortionInfo'];
+			$objTemplate->abortionInfo = $GLOBALS['TL_LANG']['tl_geburtstagsmail']['manualExecution']['abortionInfo'];
 			
 			if ($GLOBALS['TL_CONFIG']['birthdayMailerDeveloperMode'])
 			{
-				$objTemplate->developerMessage = sprintf($GLOBALS['TL_LANG']['tl_birthdaymailer']['manualExecution']['developerMessage'], $GLOBALS['TL_CONFIG']['birthdayMailerDeveloperModeEmail']);
+				$objTemplate->developerMessage = sprintf($GLOBALS['TL_LANG']['tl_geburtstagsmail']['manualExecution']['developerMessage'], $GLOBALS['TL_CONFIG']['birthdayMailerDeveloperModeEmail']);
 			}
 			
 			return $this->replaceInsertTags($objTemplate->parse());
@@ -68,12 +68,12 @@ class GeburtstagsmailBundle extends \Backend
 		
 		$config = $this->Database->prepare("SELECT tl_member.*, "
 			. "tl_member_group.name as memberGroupName, tl_member_group.disable as memberGroupDisable, tl_member_group.start as memberGroupStart, tl_member_group.stop as memberGroupStop, "
-			. "tl_birthdaymailer.sender as mailSender, tl_birthdaymailer.senderName as mailSenderName, tl_birthdaymailer.mailCopy as mailCopy, tl_birthdaymailer.mailBlindCopy as mailBlindCopy, "
-			. "tl_birthdaymailer.mailUseCustomText as mailUseCustomText, tl_birthdaymailer.mailTextKey as mailTextKey "
+			. "tl_geburtstagsmail.sender as mailSender, tl_geburtstagsmail.senderName as mailSenderName, tl_geburtstagsmail.mailCopy as mailCopy, tl_geburtstagsmail.mailBlindCopy as mailBlindCopy, "
+			. "tl_geburtstagsmail.mailUseCustomText as mailUseCustomText, tl_geburtstagsmail.mailTextKey as mailTextKey "
 			. "FROM tl_member "
 			. "JOIN tl_member_group ON tl_member_group.id = CONVERT(tl_member.groups using UTF8) "
-			. "JOIN tl_birthdaymailer ON tl_birthdaymailer.membergroup = tl_member_group.id "
-			. "ORDER BY tl_member.id, tl_birthdaymailer.priority DESC")
+			. "JOIN tl_geburtstagsmail ON tl_geburtstagsmail.membergroup = tl_member_group.id "
+			. "ORDER BY tl_member.id, tl_geburtstagsmail.priority DESC")
 			 ->execute();
 											
 		if($config->numRows < 1)
@@ -138,7 +138,7 @@ class GeburtstagsmailBundle extends \Backend
 		
 		$this->log('BirthdayMailer: Daily sending of birthday mail finished. Send ' . sizeof($alreadySendTo) . ' emails. '
 							. sizeof($notSendCauseOfError) . ' emails could not be send due to errors. '
-							. sizeof($notSendCauseOfAbortion) . ' emails were aborted due to custom hooks. See birthdaymails.log for details.', 'BirthdayMailSender sendBirthdayMail()', TL_CRON);
+							. sizeof($notSendCauseOfAbortion) . ' emails were aborted due to custom hooks. See birthdaymails.log for details.', 'GeburtstagsmailBundle sendBirthdayMail()', TL_CRON);
 		
 		return array('success' => sizeof($alreadySendTo), 'failed' => $notSendCauseOfError, 'aborted' => $notSendCauseOfAbortion);
 	}
@@ -157,17 +157,17 @@ class GeburtstagsmailBundle extends \Backend
 
 		if ($config->mailUseCustomText)
 		{
-			$text = $GLOBALS['TL_LANG']['BirthdayMailer']['mail'][$config->mailTextKey][$textType][$language];
+			$text = $GLOBALS['TL_LANG']['Geburtstagsmail']['mail'][$config->mailTextKey][$textType][$language];
 			
 			if (strlen($text) == 0 && $language != self::DEFAULT_LANGUAGE)
 			{
-				$text = $GLOBALS['TL_LANG']['BirthdayMailer']['mail'][$config->mailTextKey][$textType][self::DEFAULT_LANGUAGE];
+				$text = $GLOBALS['TL_LANG']['Geburtstagsmail']['mail'][$config->mailTextKey][$textType][self::DEFAULT_LANGUAGE];
 			}
 		}
 
 		if (strlen($text) == 0)
 		{
-			$text = $GLOBALS['TL_LANG']['BirthdayMailer']['mail']['default'][$textType];
+			$text = $GLOBALS['TL_LANG']['Geburtstagsmail']['mail']['default'][$textType];
 		}
 
 		$textReplaced = $this->replaceBirthdayMailerInsertTags($text, $config, $language);
@@ -192,7 +192,7 @@ class GeburtstagsmailBundle extends \Backend
 			$language = self::DEFAULT_LANGUAGE;
 		}
 		
-		$this->loadLanguageFile('BirthdayMailer', $language);
+		$this->loadLanguageFile('Geburtstagsmail', $language);
 		
 		$emailSubject = $this->getEmailText('subject', $config, $language);
 		$emailText = $this->getEmailText('text', $config, $language);
@@ -201,7 +201,7 @@ class GeburtstagsmailBundle extends \Backend
 		if ($GLOBALS['TL_CONFIG']['birthdayMailerDeveloperMode'] || $GLOBALS['TL_CONFIG']['birthdayMailerLogDebugInfo'])
 		{
 			$mailTextUsageOutput = $config->mailUseCustomText ? 'yes' : 'no';
-			$this->log('BirthdayMailer: These are additional debugging information that will only be logged in developer mode or if debugging is enabled.'
+			$this->log('Geburtstagsmailer: These are additional debugging information that will only be logged in developer mode or if debugging is enabled.'
 									 . ' | Userlanguage = ' . $config->language
 								   . ' | used language = ' . $language
 								   . ' | mailTextUsage = ' . $mailTextUsageOutput
@@ -209,7 +209,7 @@ class GeburtstagsmailBundle extends \Backend
 								   . ' | email = ' . $config->email
 								   . ' | subject = ' . $emailSubject
 								   . ' | text = ' . $emailText
-								   . ' | html = ' . $emailHtml, 'BirthdayMailSender sendMail()', TL_CRON);
+								   . ' | html = ' . $emailHtml, 'GeburtstagsmailBundle sendMail()', TL_CRON);
 		}
 		
 		$objEmail = new \Email();
@@ -309,7 +309,7 @@ class GeburtstagsmailBundle extends \Backend
 	 */
 	public function deleteConfiguration(DataContainer $dc)
 	{
-		$this->Database->prepare("DELETE FROM tl_birthdaymailer WHERE memberGroup = ?")
+		$this->Database->prepare("DELETE FROM tl_geburtstagsmail WHERE memberGroup = ?")
 						 ->execute($dc->id);
 	}
 	
@@ -392,17 +392,17 @@ class GeburtstagsmailBundle extends \Backend
 
 		if ($config->mailUseCustomText)
 		{
-			$text = $GLOBALS['TL_LANG']['BirthdayMailer']['mail'][$config->mailTextKey][$textType][$language];
+			$text = $GLOBALS['TL_LANG']['Geburtstagsmail']['mail'][$config->mailTextKey][$textType][$language];
 			
 			if (strlen($text) == 0 && $language != self::DEFAULT_LANGUAGE)
 			{
-				$text = $GLOBALS['TL_LANG']['BirthdayMailer']['mail'][$config->mailTextKey][$textType][self::DEFAULT_LANGUAGE];
+				$text = $GLOBALS['TL_LANG']['Geburtstagsmail']['mail'][$config->mailTextKey][$textType][self::DEFAULT_LANGUAGE];
 			}
 		}
 
 		if (strlen($text) == 0)
 		{
-			$text = $GLOBALS['TL_LANG']['BirthdayMailer']['mail']['default'][$textType];
+			$text = $GLOBALS['TL_LANG']['Geburtstagsmail']['mail']['default'][$textType];
 		}
     	return $text;
 	}
