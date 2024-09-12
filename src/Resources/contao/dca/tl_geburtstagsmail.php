@@ -10,7 +10,7 @@
 /**
  * Table tl_birthdaymailer
  */
-$GLOBALS['TL_DCA']['tl_birthdaymailer'] = array
+$GLOBALS['TL_DCA']['tl_geburtstagsmail'] = array
 (
 
 	// Config
@@ -41,15 +41,15 @@ $GLOBALS['TL_DCA']['tl_birthdaymailer'] = array
 		(
 			'fields'                => array('memberGroup:tl_member_group.name', 'priority'),
 			'format'                => '%s <span style="color:#b3b3b3; padding-left:3px;">[' . $GLOBALS['TL_LANG']['tl_birthdaymailer']['priority'][0] . ': %s]</span>',
-			'label_callback'        => array('tl_birthdaymailer', 'addIcon') 
+			'label_callback'        => array('tl_geburtstagsmail', 'addIcon') 
 		),
 		'global_operations' => array
 		(
 			'sendBirthdayMail' => array
 			(
-				'label'               => &$GLOBALS['TL_LANG']['tl_birthdaymailer']['sendBirthdayMail'],
+				'label'               => &$GLOBALS['TL_LANG']['tl_geburtstagsmailer']['sendBirthdayMail'],
 				'href'                => 'key=sendBirthdayMail',
-				'attributes'          => 'onclick="Backend.getScrollOffset();" style="background: url(system/modules/BirthdayMailer/assets/sendBirthdayMail.png) no-repeat scroll left center transparent; margin-left: 15px; padding: 2px 0 3px 20px;"'
+				'attributes'          => 'onclick="Backend.getScrollOffset();" style="background: url(src//assets/sendBirthdayMail.png) no-repeat scroll left center transparent; margin-left: 15px; padding: 2px 0 3px 20px;"'
 			),
 			'all' => array
 			(
@@ -63,26 +63,26 @@ $GLOBALS['TL_DCA']['tl_birthdaymailer'] = array
 		(
 			'edit' => array
 			(
-				'label'               => &$GLOBALS['TL_LANG']['tl_birthdaymailer']['edit'],
+				'label'               => &$GLOBALS['TL_LANG']['tl_geburtstagsmail']['edit'],
 				'href'                => 'act=edit',
 				'icon'                => 'edit.gif'
 			),
 			'copy' => array
 			(
-				'label'               => &$GLOBALS['TL_LANG']['tl_birthdaymailer']['copy'],
+				'label'               => &$GLOBALS['TL_LANG']['tl_geburtstagsmail']['copy'],
 				'href'                => 'act=copy',
 				'icon'                => 'copy.gif'
 			),
 			'delete' => array
 			(
-				'label'               => &$GLOBALS['TL_LANG']['tl_birthdaymailer']['delete'],
+				'label'               => &$GLOBALS['TL_LANG']['tl_geburtstagsmail']['delete'],
 				'href'                => 'act=delete',
 				'icon'                => 'delete.gif',
 				'attributes'          => 'onclick="if (!confirm(\'' . $GLOBALS['TL_LANG']['MSC']['deleteConfirm'] . '\')) return false; Backend.getScrollOffset();"'
 			),
 			'show' => array
 			(
-				'label'               => &$GLOBALS['TL_LANG']['tl_birthdaymailer']['show'],
+				'label'               => &$GLOBALS['TL_LANG']['tl_geburtstagsmail']['show'],
 				'href'                => 'act=show',
 				'icon'                => 'show.gif'
 			)
@@ -115,7 +115,7 @@ $GLOBALS['TL_DCA']['tl_birthdaymailer'] = array
 		),
 		'memberGroup' => array
 		(
-			'label'                 => &$GLOBALS['TL_LANG']['tl_birthdaymailer']['memberGroup'],
+			'label'                 => &$GLOBALS['TL_LANG']['tl_geburtstagsmail']['memberGroup'],
 			'exclude'               => true,
 			'inputType'             => 'select',
 			'foreignKey'            => 'tl_member_group.name',
@@ -125,7 +125,7 @@ $GLOBALS['TL_DCA']['tl_birthdaymailer'] = array
 		),
 		'priority' => array
 		(
-			'label'                 => &$GLOBALS['TL_LANG']['tl_birthdaymailer']['priority'],
+			'label'                 => &$GLOBALS['TL_LANG']['tl_geburtstagsmail']['priority'],
 			'exclude'               => true,
 			'inputType'             => 'text',
 			'eval'                  => array('rgxp' => 'digit','maxlength'=>10, 'tl_class'=>'w50'),
@@ -133,7 +133,7 @@ $GLOBALS['TL_DCA']['tl_birthdaymailer'] = array
 		),
 		'sender' => array
 		(
-			'label'                 => &$GLOBALS['TL_LANG']['tl_birthdaymailer']['sender'],
+			'label'                 => &$GLOBALS['TL_LANG']['tl_geburtstagsmail']['sender'],
 			'exclude'               => true,
 			'inputType'             => 'text',
 			'eval'                  => array('mandatory'=>true, 'rgxp' => 'email','maxlength'=>128, 'tl_class'=>'w50'),
@@ -141,7 +141,7 @@ $GLOBALS['TL_DCA']['tl_birthdaymailer'] = array
 		),
 		'senderName' => array
 		(
-			'label'                 => &$GLOBALS['TL_LANG']['tl_birthdaymailer']['senderName'],
+			'label'                 => &$GLOBALS['TL_LANG']['tl_geburtstagsmail']['senderName'],
 			'exclude'               => true,
 			'inputType'             => 'text',
 			'eval'                  => array('rgxp' => 'extnd','maxlength'=>128, 'tl_class'=>'w50'),
@@ -149,7 +149,7 @@ $GLOBALS['TL_DCA']['tl_birthdaymailer'] = array
 		),
 		'mailCopy' => array
 		(
-			'label'                 => &$GLOBALS['TL_LANG']['tl_birthdaymailer']['mailCopy'],
+			'label'                 => &$GLOBALS['TL_LANG']['tl_geburtstagsmail']['mailCopy'],
 			'exclude'               => true,
 			'inputType'             => 'text',
 			'eval'                  => array('rgxp' => 'emails','maxlength'=>255, 'tl_class'=>'w50'),
@@ -157,7 +157,7 @@ $GLOBALS['TL_DCA']['tl_birthdaymailer'] = array
 		),
 		'mailBlindCopy' => array
 		(
-			'label'                 => &$GLOBALS['TL_LANG']['tl_birthdaymailer']['mailBlindCopy'],
+			'label'                 => &$GLOBALS['TL_LANG']['tl_geburtstagsmail']['mailBlindCopy'],
 			'exclude'               => true,
 			'inputType'             => 'text',
 			'eval'                  => array('rgxp' => 'emails','maxlength'=>255, 'tl_class'=>'w50'),
@@ -165,7 +165,7 @@ $GLOBALS['TL_DCA']['tl_birthdaymailer'] = array
 		),
 		'mailUseCustomText' => array
 		(
-			'label'                 => &$GLOBALS['TL_LANG']['tl_birthdaymailer']['mailUseCustomText'],
+			'label'                 => &$GLOBALS['TL_LANG']['tl_geburtstagsmail']['mailUseCustomText'],
 			'exclude'               => true,
 			'inputType'             => 'checkbox',
 			'eval'                  => array('tl_class'=>'w50', 'submitOnChange'=>true),
@@ -173,7 +173,7 @@ $GLOBALS['TL_DCA']['tl_birthdaymailer'] = array
 		),
 		'mailTextKey' => array
 		(
-			'label'                 => &$GLOBALS['TL_LANG']['tl_birthdaymailer']['mailTextKey'],
+			'label'                 => &$GLOBALS['TL_LANG']['tl_geburtstagsmail']['mailTextKey'],
 			'exclude'               => true,
 			'inputType'             => 'text',
 			'eval'                  => array('mandatory'=>true, 'maxlength'=>20, 'spaceToUnderscore'=>true, 'tl_class'=>'w50'),
@@ -183,7 +183,7 @@ $GLOBALS['TL_DCA']['tl_birthdaymailer'] = array
 );
 
 /**
- * Class tl_birthdaymailer
+ * Class tl_geburtstagsmail
  *
  * Provide miscellaneous methods that are used by the data configuration array.
  * PHP version 5
@@ -191,7 +191,7 @@ $GLOBALS['TL_DCA']['tl_birthdaymailer'] = array
  * @author     Cliff Parnitzky
  * @package    Controller
  */
-class tl_birthdaymailer extends Backend
+class tl_geburtstagsmail extends Backend
 {
 	/**
 	 * Add an image to each record
