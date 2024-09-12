@@ -20,9 +20,9 @@ use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
 /**
- * Class GeburtstagsmailExtension
+ * Class ArminfreyGeburtstagsmailExtension
  */
-class GeburtstagsmailExtension extends Extension
+class ArminfreyGeburtstagsmailExtension extends Extension
 {
 
     /**
