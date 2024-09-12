@@ -1,5 +1,5 @@
 {
-	"name":"arminfrey/birthday-mailer",
+	"name":"arminfrey/contao-geburtstagsmail-bundle",
 	"description":"Sends a birthday email to all the members having their birthday on the current day.",
 	"keywords":["contao", "birthday", "birthdaymail", "members", "email"],
 	"type":"contao-module",
@@ -10,21 +10,19 @@
 		}
 	],
 	"support":{
-		"issues":"https://github.com/arminfrey/BirthdayMailer_kw/issues",
-		"source":"https://github.com/arminfrey/BirthdayMailer_kw"
+		"issues":"https://github.com/arminfrey/contao-geburtstagsmail-bundle/issues",
+		"source":"https://github.com/arminfrey/contao-geburtstagsmail-bundle"
 	},
 	"require":{
-		"php":">=8.0",
-		"contao/core-bundle":"~5.0"
+		"php":"^8.0",
+		"contao/core-bundle":"^5.0"
 	},
+	"autoload": {
+        "psr-4": {
+            "Contao\\GeburtstagsmailBundle\\": "src/"
+        }
+    },
 	"extra":{
-		"contao":{
-			"sources":{
-				"system/modules/BirthdayMailer":"system/modules/BirthdayMailer"
-			}
-		},
-		"branch-alias": {
-			"dev-master": "1.3.x-dev"
-		}
+		"contao-manager-plugin": "Contao\\GeburtstagsmailBundle\\ContaoManager\\Plugin"
 	}
 }
