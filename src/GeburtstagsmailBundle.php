@@ -29,7 +29,6 @@ class GeburtstagsmailBundle extends \Backend
 			
 			// Create template object
 			$objTemplate = new \BackendTemplate('be_birthday-mailer');
-
 			$objTemplate->backLink = '<a href="'.ampersand(str_replace('&key=sendBirthdayMail', '', $this->Environment->request)).'" class="header_back" title="'.specialchars($GLOBALS['TL_LANG']['MSC']['backBT']).'" accesskey="b">'.$GLOBALS['TL_LANG']['MSC']['backBT'].'</a>';
 			$objTemplate->headline = $GLOBALS['TL_LANG']['tl_birthdaymailer']['manualExecution']['headline'];
 			$objTemplate->sendingHeadline = $GLOBALS['TL_LANG']['tl_birthdaymailer']['manualExecution']['sendingHeadline'];
@@ -84,28 +83,28 @@ class GeburtstagsmailBundle extends \Backend
 		while($config->next())
 		{
 			if(
-					is_numeric($config->dateOfBirth)
-					&&
+				is_numeric($config->dateOfBirth)
+				&&
+				(
 					(
-						(
-							$GLOBALS['TL_CONFIG']['birthdayMailerDeveloperMode']
-							&&
-							$GLOBALS['TL_CONFIG']['birthdayMailerDeveloperModeIgnoreDate']
-						)
-						||
-						(
-							date("d.m") == date("d.m", $config->dateOfBirth)
-						)
+						$GLOBALS['TL_CONFIG']['birthdayMailerDeveloperMode']
+						&&
+						$GLOBALS['TL_CONFIG']['birthdayMailerDeveloperModeIgnoreDate']
 					)
-					&&
+					||
 					(
-						$this->isMemberActive($config)
-						&&
-						$this->isMemberGroupActive($config)
-						&&
-						$this->allowSendingDuplicates($alreadySendTo, $config)
+						date("d.m") == date("d.m", $config->dateOfBirth)
 					)
 				)
+				&&
+				(
+					$this->isMemberActive($config)
+					&&
+					$this->isMemberGroupActive($config)
+					&&
+					$this->allowSendingDuplicates($alreadySendTo, $config)
+				)
+			)
 			{
 				// now check via custom hook, if sending should be aborted
 				$blnAbortSendMail = false;
