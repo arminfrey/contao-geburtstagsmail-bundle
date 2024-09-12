@@ -4,7 +4,7 @@
  * Contao Open Source CMS
  * Copyright (C) 2005-2015 Leo Feyer
  * @author     Cliff Parnitzky
- * @package    BirthdayMailer
+ * @package    GeburtstagsmailBundle
  * @license    LGPL
  */
 
