@@ -12,14 +12,14 @@ declare(strict_types=1);
  * @link https://github.com/arminfrey/BirthdayMailer
  */
 
-namespace Arminfrey\GeburtstagsmailBundle\Model;
+namespace Arminfrey\Geburtstagsmail\Model;
 
 use Contao\Model;
 
 /**
  * Class GeburtstagsmailModel
  *
- * @package Arminfrey\GeburtstagsmailBundle\Model
+ * @package Arminfrey\Geburtstagsmail\Model
  */
 class GeburtstagsmailModel extends Model
 {
