@@ -4,6 +4,7 @@ namespace Arminfrey\GeburtstagsmailBundle;
 
 use Contao\Backend;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 class ArminfreyGeburtstagsmailBundle extends Bundle
 {
