@@ -1,6 +1,6 @@
 <?php
 
-use Arminfrey\Geburtstagsmail\Model\GeburtstagsmailModel;
+use Arminfrey\Geburtstagsmail\Model\ArminfreyGeburtstagsmailModel;
 /**
  * -------------------------------------------------------------------------
  * BACK END MODULES
@@ -16,7 +16,7 @@ $GLOBALS['BE_MOD']['accounts']['Geburtstagsmail'] = array
 );
 
 
-$GLOBALS['TL_MODELS']['tl_geburtstagsmail'] = GeburtstagsmailModel::class;
+$GLOBALS['TL_MODELS']['tl_geburtstagsmail'] = ArminfreyGeburtstagsmailModel::class;
 
 /**
  * -------------------------------------------------------------------------
