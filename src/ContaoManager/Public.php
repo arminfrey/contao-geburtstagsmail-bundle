@@ -12,13 +12,13 @@ declare(strict_types=1);
  * @link https://github.com/arminfrey/contao-contao-geburtstagsmail-bundle
  */
 
-namespace Arminfrey\Geburtstagsmail\ContaoManager;
+namespace Arminfrey\GeburtstagsmailBundle\ContaoManager;
 
 use Contao\CoreBundle\ContaoCoreBundle;
 use Contao\ManagerPlugin\Bundle\BundlePluginInterface;
 use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
 use Contao\ManagerPlugin\Bundle\Parser\ParserInterface;
-use Arminfrey\Geburtstagsmail\ArminfreyGeburtstagsmailBundle;
+use Arminfrey\GeburtstagsmailBundle\ArminfreyGeburtstagsmailBundle;
 
 /**
  * Class Plugin
