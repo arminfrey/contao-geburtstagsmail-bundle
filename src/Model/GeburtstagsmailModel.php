@@ -12,7 +12,7 @@ declare(strict_types=1);
  * @link https://github.com/arminfrey/BirthdayMailer
  */
 
-namespace Arminfrey\Geburtstagsmail\Model;
+namespace Arminfrey\GeburtstagsmailBundle\Model;
 
 use Contao\Model;
 
@@ -21,7 +21,7 @@ use Contao\Model;
  *
  * @package Arminfrey\Geburtstagsmail\Model
  */
-class GeburtstagsmailModel extends Model
+class ArminfreyGeburtstagsmailModel extends Model
 {
     protected static $strTable = 'tl_geburtstagsmail';
 
