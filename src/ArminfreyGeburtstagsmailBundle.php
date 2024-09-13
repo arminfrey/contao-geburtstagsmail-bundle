@@ -7,16 +7,23 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 class ArminfreyGeburtstagsmailBundle extends Bundle
 {
+    
     public function getPath(): string
     {
         return \dirname(__DIR__);
     }
 
     const DEFAULT_LANGUAGE = 'de';
-
-	public function __construct()
+	
+	/*public function __construct()
 	{
 		parent::__construct();
+	}*/
+
+	public function build(ContainerBuilder $container): void
+	{
+		parent::build($container);
+		
 	}
 
     /**
