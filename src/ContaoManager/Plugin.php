@@ -29,7 +29,7 @@ class Plugin implements BundlePluginInterface
     {
         return [
             BundleConfig::create(ArminfreyGeburtstagsmailBundle::class)
-                ->setLoadAfter(ContaoCoreBundle::class),
+                ->setLoadAfter([ContaoCoreBundle::class]),
         ];
     }
 }
