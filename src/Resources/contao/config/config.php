@@ -1,6 +1,6 @@
 <?php
 
-use Arminfrey\GeburtstagsmailBundle\Model\GeburtstagsmailModel;
+use Arminfrey\Geburtstagsmail\Model\GeburtstagsmailModel;
 /**
  * -------------------------------------------------------------------------
  * BACK END MODULES
@@ -11,8 +11,8 @@ use Arminfrey\GeburtstagsmailBundle\Model\GeburtstagsmailModel;
 $GLOBALS['BE_MOD']['accounts']['Geburtstagsmail'] = array
 (
 	'tables'           => array('tl_geburtstagsmail'),
-	'icon'             => '/assets/icon.png',
-	'sendBirthdayMail' => array('GeburtstagsmailBundle', 'sendBirthdayMailManually'), 
+	'icon'             => '../assets/icon.png',
+	'sendBirthdayMail' => array('ArminfreyGeburtstagsmailBundle', 'sendBirthdayMailManually'), 
 );
 
 
@@ -24,5 +24,5 @@ $GLOBALS['TL_MODELS']['tl_geburtstagsmail'] = GeburtstagsmailModel::class;
  * -------------------------------------------------------------------------
  */
 // Daily cron job to send birthday mails
-$GLOBALS['TL_CRON']['daily'][] = array('GeburtstagsmailBundle', 'sendBirthdayMail');
+$GLOBALS['TL_CRON']['daily'][] = array('ArminfreyGeburtstagsmailBundle', 'sendBirthdayMail');
 
