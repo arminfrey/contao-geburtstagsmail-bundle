@@ -1,11 +1,11 @@
 <?php
 // src/GeburtstagsmailBundle.php
-namespace Arminfrey\GeburtstagsmailBundle;
+namespace Arminfrey\Geburtstagsmail;
 
 use Contao\Backend;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class GeburtstagsmailBundle extends Bundle
+class ArminfreyGeburtstagsmailBundle extends Bundle
 {
     public function getPath(): string
     {
@@ -192,7 +192,7 @@ class GeburtstagsmailBundle extends Bundle
 			$language = self::DEFAULT_LANGUAGE;
 		}
 		
-		$this->loadLanguageFile('Geburtstagsmail', $language);
+		$this->loadLanguageFile('Geburtstagsmailer', $language);
 		
 		$emailSubject = $this->getEmailText('subject', $config, $language);
 		$emailText = $this->getEmailText('text', $config, $language);
@@ -404,6 +404,6 @@ class GeburtstagsmailBundle extends Bundle
 		{
 			$text = $GLOBALS['TL_LANG']['Geburtstagsmail']['mail']['default'][$textType];
 		}
-    	return $text;
+    		return $text;
 	}
 }
