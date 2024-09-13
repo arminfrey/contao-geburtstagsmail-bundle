@@ -19,7 +19,7 @@
 	},
 	"autoload": {
         	"psr-4": {
-            		"Arminfrey\\Geburtstagsmail\\": "src/"
+            		"Arminfrey\\GeburtstagsmailBundle\\": "src/"
        		 },
 		"classmap": [
             		"src/Resources/contao"
@@ -32,6 +32,6 @@
         	]
     	},
 	"extra":{
-		"contao-manager-plugin": "Arminfrey\\Geburtstagsmail\\ContaoManager\\Plugin"
+		"contao-manager-plugin": "Arminfrey\\GeburtstagsmailBundle\\ContaoManager\\Plugin"
 	}
 }
