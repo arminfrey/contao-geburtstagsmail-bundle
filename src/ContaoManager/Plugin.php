@@ -25,10 +25,10 @@ use Arminfrey\GeburtstagsmailBundle\ArminfreyGeburtstagsmailBundle;
  */
 class Plugin implements BundlePluginInterface
 {
-    public function getBundles(ParserInterface $parser): array
+    public function getBundles(ParserInterface $parser)
     {
         return [
-            (new BundleConfig(ArminfreyGeburtstagsmailBundle::class))
+            BundleConfig::create(ArminfreyGeburtstagsmailBundle::class)
                 ->setLoadAfter([ContaoCoreBundle::class]),
         ];
     }
