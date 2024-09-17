@@ -7,9 +7,9 @@
  * @license    LGPL
  */
 
-namespace Arminfrey\ArminfreyGeburtstagsmailBundle
+namespace Arminfrey\GeburtstagsmailBundle;
 
-use Contao\Backend
+use Contao\Backend;
 
 /**
  * Table tl_birthdaymailer
