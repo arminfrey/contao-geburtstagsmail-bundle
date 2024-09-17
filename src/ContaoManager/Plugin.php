@@ -28,7 +28,7 @@ class Plugin implements BundlePluginInterface
     public function getBundles(ParserInterface $parser): array
     {
         return [
-            BundleConfig::create(ArminfreyGeburtstagsmailBundle::class)
+            (new BundleConfig::create(ArminfreyGeburtstagsmailBundle::class))
                 ->setLoadAfter([ContaoCoreBundle::class]),
         ];
     }
