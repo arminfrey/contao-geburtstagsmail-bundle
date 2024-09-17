@@ -7,8 +7,8 @@ use Arminfrey\Geburtstagsmail\Model\ArminfreyGeburtstagsmailModel;
  * -------------------------------------------------------------------------
  */
 
-// Add configuration to Backend -> Accounts
-$GLOBALS['BE_MOD']['accounts']['Geburtstagsmail'] = array
+// Add configuration to Backend
+$GLOBALS['BE_MOD']['Geburtstagsmail']['Geburtstagsmail'] = array
 (
 	'tables'           => array('tl_geburtstagsmail'),
 	'icon'             => '../assets/icon.png',
