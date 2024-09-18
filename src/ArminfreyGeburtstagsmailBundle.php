@@ -11,11 +11,6 @@ use Doctrine\DBAL\Connection;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class MyController
-{
-    
-
-    
 
 class ArminfreyGeburtstagsmailBundle extends Bundle
 {
