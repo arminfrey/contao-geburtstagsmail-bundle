@@ -14,12 +14,14 @@ use Contao\DataContainer;
 use Contao\DC_Table;
 use Contao\Image;
 
+\Contao\Controller::loadDataContainer('tl_geburtstagsmail'); 
+
 /**
  * Table tl_birthdaymailer
  */
 $GLOBALS['TL_DCA']['tl_geburtstagsmail'] = array
 (
-
+	
 	// Config
 	'config' => array
 	(
@@ -48,7 +50,7 @@ $GLOBALS['TL_DCA']['tl_geburtstagsmail'] = array
 		(
 			'fields'                => array('memberGroup:tl_member_group.name', 'priority'),
 			'format'                => '%s <span style="color:#b3b3b3; padding-left:3px;">[' . $GLOBALS['TL_LANG']['tl_birthdaymail']['priority'][0] . ': %s]</span>',
-			'label_callback'        => array('geburtstagsmail', 'addIcon') 
+			'label_callback'        => array('tl_geburtstagsmail', 'addIcon') 
 		),
 		'global_operations' => array
 		(
@@ -221,7 +223,7 @@ $GLOBALS['TL_DCA']['tl_geburtstagsmail'] = array
 } */
 
 
-class geburtstagsmail extends Backend
+class tl_geburtstagsmail extends Backend
 {
 	/**
 	 * Add an image to each record
