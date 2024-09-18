@@ -6,6 +6,7 @@ use Contao\Backend;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Arminfrey\GeburtstagsmailBundle\DependencyInjection\ArminfreyGeburtstagsmailExtension;
+use Symfony\Component\HttpFoundation\Request;
 
 class ArminfreyGeburtstagsmailBundle extends Bundle
 {
@@ -32,7 +33,8 @@ class ArminfreyGeburtstagsmailBundle extends Bundle
 	 */
 	public function sendBirthdayMailManually()
 	{
-		if (TL_MODE == 'BE')
+		$isBackend = \Contao\System::getContainer()->get('contao.routing.scope_matcher')->isBackendRequest(\Contao\System::getContainer()->get('request_stack')->getCurrentRequest() ?? \Symfony\Component\HttpFoundation\Request::create(''));
+		if ($isBackend)
 		{
 			$result = $this->sendBirthdayMail();
 			
