@@ -8,20 +8,22 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Arminfrey\GeburtstagsmailBundle\DependencyInjection\ArminfreyGeburtstagsmailExtension;
 use Symfony\Component\HttpFoundation\Request;
+use Doctrine\DBAL\Connection;
 
 class ArminfreyGeburtstagsmailBundle extends Bundle
 {
 	const DEFAULT_LANGUAGE = 'de';
+	private $db;
 
 	public function getPath(): string
     	{
 		return \dirname(__DIR__);
    	}
-	
-	/*public function __construct()
-	{
-		parent::__construct();
-	}*/
+		
+	public function __construct(Connection $db)
+    	{
+        	$this->db = $db;
+    	}
 
 	public function build(ContainerBuilder $container): void
 	{
@@ -78,7 +80,7 @@ class ArminfreyGeburtstagsmailBundle extends Bundle
 		$notSendCauseOfAbortion = array();
 		$db = Database::getInstance();
 		
-		$config = $this->$db->prepare("SELECT tl_member.*, "
+		$config = $this->db->prepare("SELECT tl_member.*, "
 			. "tl_member_group.name as memberGroupName, tl_member_group.disable as memberGroupDisable, tl_member_group.start as memberGroupStart, tl_member_group.stop as memberGroupStop, "
 			. "tl_geburtstagsmail.sender as mailSender, tl_geburtstagsmail.senderName as mailSenderName, tl_geburtstagsmail.mailCopy as mailCopy, tl_geburtstagsmail.mailBlindCopy as mailBlindCopy, "
 			. "tl_geburtstagsmail.mailUseCustomText as mailUseCustomText, tl_geburtstagsmail.mailTextKey as mailTextKey "
