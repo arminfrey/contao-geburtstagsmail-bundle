@@ -1,8 +1,8 @@
 <?php
-namespace Arminfrey\GeburtstagsmailBundle;
+namespace Arminfrey\GeburtstagsmailBundle\ArminfreyGeburtstagsmailBundle;
 
 use Arminfrey\Geburtstagsmail\Model\ArminfreyGeburtstagsmailModel;
-use Arminfrey\Geburtstagsmail\ArminfreyGeburtstagsmailBundle;
+//use Arminfrey\Geburtstagsmail\ArminfreyGeburtstagsmailBundle;
 
 /**
  * -------------------------------------------------------------------------
