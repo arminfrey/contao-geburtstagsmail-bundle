@@ -1,6 +1,6 @@
 <?php
 // src/GeburtstagsmailBundle.php
-namespace Arminfrey\GeburtstagsmailBundle\ArminfreyGeburtstagsmailBundle;
+namespace Arminfrey\GeburtstagsmailBundle;
 
 use Contao\Backend;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
