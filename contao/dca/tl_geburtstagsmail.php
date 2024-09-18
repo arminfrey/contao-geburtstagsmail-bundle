@@ -12,6 +12,16 @@ namespace Arminfrey\GeburtstagsmailBundle;
 use Contao\Backend;
 use Contao\DataContainer;
 use Contao\DC_Table;
+use Contao\Database;
+use Contao\DataContainer;
+use Contao\DC_Table;
+use Contao\FrontendUser;
+use Contao\Image;
+use Contao\MemberGroupModel;
+use Contao\MemberModel;
+use Contao\StringUtil;
+use Contao\System;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Table tl_birthdaymailer
@@ -47,7 +57,7 @@ $GLOBALS['TL_DCA']['tl_geburtstagsmail'] = array
 		(
 			'fields'                => array('memberGroup:tl_member_group.name', 'priority'),
 			'format'                => '%s <span style="color:#b3b3b3; padding-left:3px;">[' . $GLOBALS['TL_LANG']['tl_birthdaymail']['priority'][0] . ': %s]</span>',
-			'label_callback'        => array('tl_geburtstagsmail', 'addIcon') 
+			'label_callback'        => array('geburtstagsmail', 'addIcon') 
 		),
 		'global_operations' => array
 		(
@@ -189,7 +199,7 @@ $GLOBALS['TL_DCA']['tl_geburtstagsmail'] = array
 );
 
 /**
- * Class tl_geburtstagsmail
+ * Class geburtstagsmail
  *
  * Provide miscellaneous methods that are used by the data configuration array.
  * PHP version 5
@@ -197,7 +207,7 @@ $GLOBALS['TL_DCA']['tl_geburtstagsmail'] = array
  * @author     Cliff Parnitzky
  * @package    Controller
  */
-class tl_geburtstagsmail extends Backend
+class geburtstagsmail extends Backend
 {
 	/**
 	 * Add an image to each record
