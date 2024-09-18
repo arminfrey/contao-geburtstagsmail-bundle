@@ -44,7 +44,7 @@ $GLOBALS['TL_DCA']['tl_geburtstagsmail'] = array
 		'label' => array
 		(
 			'fields'                => array('memberGroup:tl_member_group.name', 'priority'),
-			'format'                => '%s <span style="color:#b3b3b3; padding-left:3px;">[' . $GLOBALS['TL_LANG']['tl_birthdaymailer']['priority'][0] . ': %s]</span>',
+			'format'                => '%s <span style="color:#b3b3b3; padding-left:3px;">[' . $GLOBALS['TL_LANG']['tl_birthdaymail']['priority'][0] . ': %s]</span>',
 			'label_callback'        => array('tl_geburtstagsmail', 'addIcon') 
 		),
 		'global_operations' => array
