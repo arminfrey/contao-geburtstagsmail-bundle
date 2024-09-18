@@ -7,9 +7,15 @@ use Contao\System;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Arminfrey\GeburtstagsmailBundle\DependencyInjection\ArminfreyGeburtstagsmailExtension;
+use Doctrine\DBAL\Connection;
 use Symfony\Component\HttpFoundation\Request;
-//use Doctrine\DBAL\Connection;
-use Contao\Database\Statement;
+use Symfony\Component\HttpFoundation\Response;
+
+class MyController
+{
+    
+
+    
 
 class ArminfreyGeburtstagsmailBundle extends Bundle
 {
@@ -26,6 +32,11 @@ class ArminfreyGeburtstagsmailBundle extends Bundle
 		parent::build($container);
 		
 	}
+
+	public function __construct(Connection $db)
+    	{
+        	$this->db = $db;
+    	}
 
     /**
 	 * Execute the sender manually from backend and get a result page.
@@ -74,9 +85,8 @@ class ArminfreyGeburtstagsmailBundle extends Bundle
 		$alreadySendTo = array();
 		$notSendCauseOfError = array();
 		$notSendCauseOfAbortion = array();
-		$db = Database::getInstance();
-		
-		$config = $db->prepare("SELECT tl_member.*, "
+
+		$config = $this->db->executeQuery("SELECT tl_member.*, "
 			. "tl_member_group.name as memberGroupName, tl_member_group.disable as memberGroupDisable, tl_member_group.start as memberGroupStart, tl_member_group.stop as memberGroupStop, "
 			. "tl_geburtstagsmail.sender as mailSender, tl_geburtstagsmail.senderName as mailSenderName, tl_geburtstagsmail.mailCopy as mailCopy, tl_geburtstagsmail.mailBlindCopy as mailBlindCopy, "
 			. "tl_geburtstagsmail.mailUseCustomText as mailUseCustomText, tl_geburtstagsmail.mailTextKey as mailTextKey "
@@ -84,7 +94,7 @@ class ArminfreyGeburtstagsmailBundle extends Bundle
 			. "JOIN tl_member_group ON tl_member_group.id = CONVERT(tl_member.groups using UTF8) "
 			. "JOIN tl_geburtstagsmail ON tl_geburtstagsmail.membergroup = tl_member_group.id "
 			. "ORDER BY tl_member.id, tl_geburtstagsmail.priority DESC")
-			 ->execute();
+			 ->fetchAll();
 											
 		if($config->numRows < 1)
 		{
@@ -319,8 +329,7 @@ class ArminfreyGeburtstagsmailBundle extends Bundle
 	 */
 	public function deleteConfiguration(DataContainer $dc)
 	{
-		$this->db->prepare("DELETE FROM tl_geburtstagsmail WHERE memberGroup = ?")
-						 ->execute($dc->id);
+		$this->db->executeStatement('DELETE FROM tl_geburtstagsmail WHERE memberGroup = ?', [$dc->id]);
 	}
 	
 	/**
