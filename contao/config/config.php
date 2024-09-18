@@ -1,8 +1,7 @@
 <?php
-namespace Arminfrey\GeburtstagsmailBundle\ArminfreyGeburtstagsmailBundle;
+//namespace Arminfrey\GeburtstagsmailBundle\ArminfreyGeburtstagsmailBundle;
 
-use Arminfrey\Geburtstagsmail\Model\ArminfreyGeburtstagsmailModel;
-//use Arminfrey\Geburtstagsmail\ArminfreyGeburtstagsmailBundle;
+use Arminfrey\Geburtstagsmail\ArminfreyGeburtstagsmailBundle;
 
 /**
  * -------------------------------------------------------------------------
@@ -15,7 +14,7 @@ $GLOBALS['BE_MOD']['Geburtstagsmail']['Geburtstagsmail'] = array
 (
 	'tables'           => array('tl_geburtstagsmail'),
 	'icon'             => '../src/assets/icon.png',
-	'sendBirthdayMail' => array('ArminfreyGeburtstagsmailBundle', 'sendBirthdayMailManually'), 
+	'sendBirthdayMail' => array(ArminfreyGeburtstagsmailBundle::class, 'sendBirthdayMailManually'), 
 );
 
 
@@ -27,5 +26,5 @@ $GLOBALS['TL_MODELS']['tl_geburtstagsmail'] = ArminfreyGeburtstagsmailModel::cla
  * -------------------------------------------------------------------------
  */
 // Daily cron job to send birthday mails
-$GLOBALS['TL_CRON']['daily'][] = array('ArminfreyGeburtstagsmailBundle', 'sendBirthdayMail');
+$GLOBALS['TL_CRON']['daily'][] = array(ArminfreyGeburtstagsmailBundle::class, 'sendBirthdayMail');
 
