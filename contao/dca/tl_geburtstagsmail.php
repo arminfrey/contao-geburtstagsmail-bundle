@@ -224,4 +224,4 @@ class tl_geburtstagsmail extends Backend
 	}
 } 
 
-?>
+
