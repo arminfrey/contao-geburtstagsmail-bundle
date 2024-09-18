@@ -49,7 +49,7 @@ $GLOBALS['TL_DCA']['tl_geburtstagsmail'] = array
 		'label' => array
 		(
 			'fields'                => array('memberGroup:tl_member_group.name', 'priority'),
-			'format'                => '%s <span style="color:#b3b3b3; padding-left:3px;">[' . $GLOBALS['TL_LANG']['tl_birthdaymail']['priority'][0] . ': %s]</span>',
+			//'format'                => '%s <span style="color:#b3b3b3; padding-left:3px;">[' . $GLOBALS['TL_LANG']['tl_birthdaymail']['priority'][0] . ': %s]</span>',
 			'label_callback'        => array('tl_geburtstagsmail', 'addIcon') 
 		),
 		'global_operations' => array
@@ -191,15 +191,7 @@ $GLOBALS['TL_DCA']['tl_geburtstagsmail'] = array
 	)
 );
 
-/**
- * Class geburtstagsmail
- *
- * Provide miscellaneous methods that are used by the data configuration array.
- * PHP version 5
- * @copyright  Cliff Parnitzky 2011-2015
- * @author     Cliff Parnitzky
- * @package    Controller
- */
+
 /** class geburtstagsmail extends Backend
 {
 	
