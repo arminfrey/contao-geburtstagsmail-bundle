@@ -12,13 +12,7 @@ namespace Arminfrey\GeburtstagsmailBundle;
 use Contao\Backend;
 use Contao\DataContainer;
 use Contao\DC_Table;
-use Contao\Database;
 use Contao\Image;
-use Contao\MemberGroupModel;
-use Contao\MemberModel;
-use Contao\StringUtil;
-use Contao\System;
-use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Table tl_birthdaymailer
