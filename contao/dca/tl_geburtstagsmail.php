@@ -204,14 +204,9 @@ $GLOBALS['TL_DCA']['tl_geburtstagsmail'] = array
  * @author     Cliff Parnitzky
  * @package    Controller
  */
-class geburtstagsmail extends Backend
+/** class geburtstagsmail extends Backend
 {
-	/**
-	 * Add an image to each record
-	 * @param array
-	 * @param string
-	 * @return string
-	 */
+	
 	public function addIcon($row, $label)
 	{
 		 $memberGroupId = $row['memberGroup']; 
@@ -229,6 +224,36 @@ class geburtstagsmail extends Backend
 
 		return sprintf('<div class="list_icon" style="background-image:url(\'system/themes/%s/images/%s.gif\');">%s</div>', $this->getTheme(), $image, $label);
 	}
-} 
+} */
 
 
+class geburtstagsmail extends Backend
+{
+	/**
+	 * Add an image to each record
+	 *
+	 * @param array  $row
+	 * @param string $label
+	 *
+	 * @return string
+	 */
+	public function addIcon($row, $label)
+	{
+		$image = 'mgroup';
+		$disabled = ($row['start'] !== '' && $row['start'] > time()) || ($row['stop'] !== '' && $row['stop'] <= time());
+		$icon = $image;
+
+		if ($disabled || $row['disable'])
+		{
+			$image .= '--disabled';
+		}
+
+		return sprintf(
+			'<div class="list_icon" style="background-image:url(\'%s\')" data-icon="%s" data-icon-disabled="%s">%s</div>',
+			Image::getUrl($image),
+			Image::getUrl($icon),
+			Image::getUrl($icon . '--disabled'),
+			$label
+		);
+	}
+}
