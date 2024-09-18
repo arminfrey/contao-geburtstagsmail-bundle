@@ -76,8 +76,9 @@ class ArminfreyGeburtstagsmailBundle extends Bundle
 		$alreadySendTo = array();
 		$notSendCauseOfError = array();
 		$notSendCauseOfAbortion = array();
+		$db = Database::getInstance();
 		
-		$config = $this->Database->prepare("SELECT tl_member.*, "
+		$config = $this->$db->prepare("SELECT tl_member.*, "
 			. "tl_member_group.name as memberGroupName, tl_member_group.disable as memberGroupDisable, tl_member_group.start as memberGroupStart, tl_member_group.stop as memberGroupStop, "
 			. "tl_geburtstagsmail.sender as mailSender, tl_geburtstagsmail.senderName as mailSenderName, tl_geburtstagsmail.mailCopy as mailCopy, tl_geburtstagsmail.mailBlindCopy as mailBlindCopy, "
 			. "tl_geburtstagsmail.mailUseCustomText as mailUseCustomText, tl_geburtstagsmail.mailTextKey as mailTextKey "
