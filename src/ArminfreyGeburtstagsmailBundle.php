@@ -28,9 +28,9 @@ class ArminfreyGeburtstagsmailBundle extends Bundle
 		
 	}
 
-	public function __construct()
+	public function __construct(new connection $db)
     	{
-        	$this->db = connection $db;
+        	$this->db = $db;
     	}
 
     /**
