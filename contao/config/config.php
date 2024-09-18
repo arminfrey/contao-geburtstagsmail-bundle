@@ -2,6 +2,7 @@
 //namespace Arminfrey\GeburtstagsmailBundle\ArminfreyGeburtstagsmailBundle;
 
 use Arminfrey\GeburtstagsmailBundle\ArminfreyGeburtstagsmailBundle;
+use Arminfrey\GeburtstagsmailBundle\Model\ArminfreyGeburtstagsmailModel;
 
 /**
  * -------------------------------------------------------------------------
