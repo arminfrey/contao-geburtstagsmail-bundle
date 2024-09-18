@@ -2,6 +2,8 @@
 namespace Arminfrey\GeburtstagsmailBundle;
 
 use Arminfrey\Geburtstagsmail\Model\ArminfreyGeburtstagsmailModel;
+use Arminfrey\Geburtstagsmail\ArminfreyGeburtstagsmailBundle;
+
 /**
  * -------------------------------------------------------------------------
  * BACK END MODULES
