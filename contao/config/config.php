@@ -14,7 +14,7 @@ use Arminfrey\Geburtstagsmail\Model\ArminfreyGeburtstagsmailModel;
 $GLOBALS['BE_MOD']['Geburtstagsmail']['Geburtstagsmail'] = array
 (
 	'tables'           => array('tl_geburtstagsmail'),
-	'icon'             => '../../src/assets/icon.png',
+	'icon'             => '../src/assets/icon.png',
 	'sendBirthdayMail' => array('ArminfreyGeburtstagsmailBundle', 'sendBirthdayMailManually'), 
 );
 
