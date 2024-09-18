@@ -10,6 +10,8 @@
 namespace Arminfrey\GeburtstagsmailBundle;
 
 use Contao\Backend;
+use Contao\DataContainer;
+use Contao\DC_Table;
 
 /**
  * Table tl_birthdaymailer
@@ -20,7 +22,7 @@ $GLOBALS['TL_DCA']['tl_geburtstagsmail'] = array
 	// Config
 	'config' => array
 	(
-		'dataContainer'           => 'Table',
+		'dataContainer'           => DC_Table::class,
 		'enableVersioning'        => true,
 		'sql' => array
 		(
@@ -51,7 +53,7 @@ $GLOBALS['TL_DCA']['tl_geburtstagsmail'] = array
 		(
 			'sendBirthdayMail' => array
 			(
-				'label'               => &$GLOBALS['TL_LANG']['tl_geburtstagsmailer']['sendBirthdayMail'],
+				'label'               => &$GLOBALS['TL_LANG']['tl_geburtstagsmail']['sendBirthdayMail'],
 				'href'                => 'key=sendBirthdayMail',
 				'attributes'          => 'onclick="Backend.getScrollOffset();" style="background: url(src//assets/sendBirthdayMail.png) no-repeat scroll left center transparent; margin-left: 15px; padding: 2px 0 3px 20px;"'
 			),
