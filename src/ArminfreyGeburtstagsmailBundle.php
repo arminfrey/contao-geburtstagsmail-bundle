@@ -16,7 +16,7 @@ use Symfony\Component\HttpFoundation\Response;
 class ArminfreyGeburtstagsmailBundle extends Bundle
 {
 	const DEFAULT_LANGUAGE = 'de';
-	
+		
    	public function getPath(): string
     	{
 		return \dirname(__DIR__);
