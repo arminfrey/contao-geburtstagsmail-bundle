@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 
-class ArminfreyGeburtstagsmailBundle extends Bundle
+class GeburtstagsmailBundle extends Bundle
 {
 	const DEFAULT_LANGUAGE = 'de';
 		
