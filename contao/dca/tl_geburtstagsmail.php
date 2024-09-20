@@ -14,7 +14,7 @@ use Contao\DataContainer;
 use Contao\DC_Table;
 use Contao\Image;
 
-\Contao\Controller::loadDataContainer('tl_geburtstagsmail'); 
+// \Contao\Controller::loadDataContainer('tl_geburtstagsmail'); 
 
 /**
  * Table tl_birthdaymailer
