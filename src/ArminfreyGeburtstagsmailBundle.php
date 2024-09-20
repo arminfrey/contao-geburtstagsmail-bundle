@@ -7,16 +7,15 @@ use Contao\System;
 use Doctrine\DBAL\Connection;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Arminfrey\GeburtstagsmailBundle\DependencyInjection\ArminfreyGeburtstagsmailExtension;
+use Arminfrey\GeburtstagsmailBundle\DependencyInjection;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 
-class ArminfreyGeburtstagsmailBundle extends Bundle
+class GeburtstagsmailBundle extends Bundle
 {
 	const DEFAULT_LANGUAGE = 'de';
-	private $db;
-
+	
    	public function __construct(private readonly Connection $connection)
     	{
         	$this->db = $db;
@@ -29,8 +28,7 @@ class ArminfreyGeburtstagsmailBundle extends Bundle
 
 	public function build(ContainerBuilder $container): void
 	{
-		parent::build($container);
-		
+		parent::build($container);		
 	}
 
 	
