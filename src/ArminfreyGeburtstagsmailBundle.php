@@ -18,7 +18,7 @@ class ArminfreyGeburtstagsmailBundle extends Bundle
 	
    	public function __construct(private readonly Connection $connection)
     	{
-        	$this->db = $db;
+        	$this->db = $connection;
     	}
 
 	public function getPath(): string
