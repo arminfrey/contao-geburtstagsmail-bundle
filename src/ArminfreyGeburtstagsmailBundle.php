@@ -15,7 +15,12 @@ use Symfony\Component\HttpFoundation\Response;
 class ArminfreyGeburtstagsmailBundle extends Bundle
 {
 	const DEFAULT_LANGUAGE = 'de';
-	private $db;
+	
+
+	public function __construct(private readonly Connection $connection)
+    	{
+        	//$this->db = $db;
+    	}
 
 	public function getPath(): string
     	{
@@ -28,10 +33,7 @@ class ArminfreyGeburtstagsmailBundle extends Bundle
 		
 	}
 
-	public function __construct(new connection $db)
-    	{
-        	$this->db = $db;
-    	}
+	
 
     /**
 	 * Execute the sender manually from backend and get a result page.
@@ -81,7 +83,7 @@ class ArminfreyGeburtstagsmailBundle extends Bundle
 		$notSendCauseOfError = array();
 		$notSendCauseOfAbortion = array();
 
-		$config = $this->db->executeQuery("SELECT tl_member.*, "
+		$config = $this->connection->executeQuery("SELECT tl_member.*, "
 			. "tl_member_group.name as memberGroupName, tl_member_group.disable as memberGroupDisable, tl_member_group.start as memberGroupStart, tl_member_group.stop as memberGroupStop, "
 			. "tl_geburtstagsmail.sender as mailSender, tl_geburtstagsmail.senderName as mailSenderName, tl_geburtstagsmail.mailCopy as mailCopy, tl_geburtstagsmail.mailBlindCopy as mailBlindCopy, "
 			. "tl_geburtstagsmail.mailUseCustomText as mailUseCustomText, tl_geburtstagsmail.mailTextKey as mailTextKey "
@@ -324,7 +326,7 @@ class ArminfreyGeburtstagsmailBundle extends Bundle
 	 */
 	public function deleteConfiguration(DataContainer $dc)
 	{
-		$this->db->executeStatement('DELETE FROM tl_geburtstagsmail WHERE memberGroup = ?', [$dc->id]);
+		$this->connection->executeStatement('DELETE FROM tl_geburtstagsmail WHERE memberGroup = ?', [$dc->id]);
 	}
 	
 	/**
