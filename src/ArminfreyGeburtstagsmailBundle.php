@@ -4,10 +4,10 @@ namespace Arminfrey\GeburtstagsmailBundle;
 
 use Contao\Backend;
 use Contao\System;
+use Doctrine\DBAL\Connection;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Arminfrey\GeburtstagsmailBundle\DependencyInjection\ArminfreyGeburtstagsmailExtension;
-use Doctrine\DBAL\Connection;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
