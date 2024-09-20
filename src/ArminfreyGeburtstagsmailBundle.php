@@ -17,12 +17,7 @@ class ArminfreyGeburtstagsmailBundle extends Bundle
 {
 	const DEFAULT_LANGUAGE = 'de';
 	
-   	public function __construct(private readonly Connection $connection)
-    	{
-        	$this->db = $connection;
-    	}
-
-	public function getPath(): string
+   	public function getPath(): string
     	{
 		return \dirname(__DIR__);
    	}
@@ -32,7 +27,10 @@ class ArminfreyGeburtstagsmailBundle extends Bundle
 		parent::build($container);		
 	}
 
-	
+	public function __construct(private readonly Connection $connection)
+    	{
+        	$this->db = $connection;
+    	}
 
     /**
 	 * Execute the sender manually from backend and get a result page.
