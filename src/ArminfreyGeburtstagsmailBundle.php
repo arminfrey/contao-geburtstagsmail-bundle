@@ -4,6 +4,7 @@ namespace Arminfrey\GeburtstagsmailBundle;
 
 use Contao\Backend;
 use Contao\System;
+use Contao\DataContainer;
 use Doctrine\DBAL\Connection;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
