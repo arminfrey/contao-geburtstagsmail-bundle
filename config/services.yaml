@@ -2,8 +2,3 @@ services:
     _defaults:
         autowire: true
         autoconfigure: true
-
-
-    Arminfrey\GeburtstagsmailBundle:
-        resource: '../src/'
-        exclude: '../src/{Model,DependencyInjection,Resources}'
