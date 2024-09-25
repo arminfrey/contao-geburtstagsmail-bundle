@@ -4,6 +4,6 @@ services:
         autoconfigure: true
 
 
-    Arminfrey\GeburtstagsmailBundle\:
+    Arminfrey\GeburtstagsmailBundle:
         resource: '../src/'
         exclude: '../src/{Model,DependencyInjection,Resources}'
