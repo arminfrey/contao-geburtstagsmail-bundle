@@ -19,7 +19,7 @@ $GLOBALS['BE_MOD']['Geburtstagsmail']['Geburtstagsmail'] = array
 );
 
 
-$GLOBALS['TL_MODELS']['tl_geburtstagsmail'] = ArminfreyGeburtstagsmailModel::class;
+//$GLOBALS['TL_MODELS']['tl_geburtstagsmail'] = ArminfreyGeburtstagsmailModel::class;
 
 /**
  * -------------------------------------------------------------------------
