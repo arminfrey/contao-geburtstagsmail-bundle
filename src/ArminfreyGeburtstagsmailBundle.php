@@ -28,7 +28,7 @@ class ArminfreyGeburtstagsmailBundle extends Bundle
 		parent::build($container);		
 	}
 
-	public function __construct(private readonly Connection $db)
+	public function __construct(Connection $db)
     	{
         	$this->db = $db;
     	}
