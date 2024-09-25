@@ -2,3 +2,7 @@ services:
     _defaults:
         autowire: true
         autoconfigure: true
+
+Arminfrey\ArminfreyGeburtstagsmailBundle\:
+    resource: ../../src
+    exclude: ../../src/{Model,Resources,Tests,Widget}
