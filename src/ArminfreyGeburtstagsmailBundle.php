@@ -5,6 +5,7 @@ namespace Arminfrey\GeburtstagsmailBundle;
 use Contao\Backend;
 use Contao\System;
 use Contao\DataContainer;
+use Contao\Database;
 use Doctrine\DBAL\Connection;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -26,13 +27,14 @@ class ArminfreyGeburtstagsmailBundle extends Bundle
 
 	public function build(ContainerBuilder $container): void
 	{
-		parent::build($container);		
+		parent::build($container);	
+		$db = Database::getInstance();
 	}
 
-	public function __construct(Connection $db)
+	/*public function __construct(Connection $db)
     	{
         	$this->db = $db;
-    	}
+    	}*/
 
     /**
 	 * Execute the sender manually from backend and get a result page.
@@ -78,11 +80,12 @@ class ArminfreyGeburtstagsmailBundle extends Bundle
 	 */
 	public function sendBirthdayMail()
 	{
+		
 		$alreadySendTo = array();
 		$notSendCauseOfError = array();
 		$notSendCauseOfAbortion = array();
 
-		$config = $this->db->executeQuery("SELECT tl_member.*, "
+		$config = $db->executeQuery("SELECT tl_member.*, "
 			. "tl_member_group.name as memberGroupName, tl_member_group.disable as memberGroupDisable, tl_member_group.start as memberGroupStart, tl_member_group.stop as memberGroupStop, "
 			. "tl_geburtstagsmail.sender as mailSender, tl_geburtstagsmail.senderName as mailSenderName, tl_geburtstagsmail.mailCopy as mailCopy, tl_geburtstagsmail.mailBlindCopy as mailBlindCopy, "
 			. "tl_geburtstagsmail.mailUseCustomText as mailUseCustomText, tl_geburtstagsmail.mailTextKey as mailTextKey "
@@ -325,7 +328,7 @@ class ArminfreyGeburtstagsmailBundle extends Bundle
 	 */
 	public function deleteConfiguration(DataContainer $dc)
 	{
-		$this->db->executeStatement('DELETE FROM tl_geburtstagsmail WHERE memberGroup = ?', [$dc->id]);
+		$db->executeStatement('DELETE FROM tl_geburtstagsmail WHERE memberGroup = ?', [$dc->id]);
 	}
 	
 	/**
