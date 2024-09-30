@@ -28,13 +28,13 @@ class ArminfreyGeburtstagsmailBundle extends Bundle
 	public function build(ContainerBuilder $container): void
 	{
 		parent::build($container);
-		$this->db = $container->get('doctrine.dbal.account68_int_connection');
+		
 	}
 
-	/*public function __construct(Connection $db)
+	public function __construct(Connection $db)
     	{
-        	$this->db = $db;
-    	}*/
+        	$this->db = $container->get('doctrine.dbal.account68_int_connection');
+    	}
 
     /**
 	 * Execute the sender manually from backend and get a result page.
