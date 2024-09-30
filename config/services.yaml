@@ -2,9 +2,10 @@ services:
     _defaults:
         autowire: true
         autoconfigure: true
+    App\Service\ArminfreyGeburtstagsmailBundle:
+        arguments:
+            $db: '@doctrine.dbal.default_connection'
 
 Arminfrey\ArminfreyGeburtstagsmailBundle\:
     resource: ../../src
     exclude: ../../src/{Model,Resources,Tests,Widget}
-    arguments:
-            $db: '@doctrine.dbal.default_connection'
