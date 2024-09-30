@@ -7,8 +7,5 @@ services:
 Arminfrey\ArminfreyGeburtstagsmailBundle\:
     resource: ../../src
     exclude: ../../src/{Model,Resources,Tests,Widget}
-
-    class: Arminfrey\GeburtstagsmailBundle\ArminfreyGeburtstagsmailBundle
-        public: true
-        arguments:
-            - '@database_connection'
+    arguments:
+            - '@doctrine.dbal.account68_int_connection'
