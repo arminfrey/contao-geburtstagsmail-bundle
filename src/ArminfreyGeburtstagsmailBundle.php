@@ -5,7 +5,7 @@ namespace Arminfrey\GeburtstagsmailBundle;
 use Contao\Backend;
 use Contao\System;
 use Contao\DataContainer;
-use Contao\Database;
+//use Contao\Database;
 use Doctrine\DBAL\Connection;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -18,7 +18,7 @@ use Arminfrey\GeburtstagsmailBundle\DependencyInjection\ArminfreyGeburtstagsmail
 class ArminfreyGeburtstagsmailBundle extends Bundle
 {
 	const DEFAULT_LANGUAGE = 'de';
-	private $db;
+	//private $db;
 		
    	public function getPath(): string
     	{
@@ -27,13 +27,14 @@ class ArminfreyGeburtstagsmailBundle extends Bundle
 
 	public function build(ContainerBuilder $container): void
 	{
-		parent::build($container);	
+		parent::build($container);
+		$this->db = $container->get('doctrine.dbal.default_connection');
 	}
 
-	public function __construct(Connection $db)
+	/*public function __construct(Connection $db)
     	{
         	$this->db = $db;
-    	}
+    	}*/
 
     /**
 	 * Execute the sender manually from backend and get a result page.
