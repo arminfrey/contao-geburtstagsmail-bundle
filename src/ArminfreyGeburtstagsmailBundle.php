@@ -28,7 +28,7 @@ class ArminfreyGeburtstagsmailBundle extends Bundle
 	public function build(ContainerBuilder $container): void
 	{
 		parent::build($container);
-		$this->db = $container->get('doctrine.dbal.default_connection');
+		$this->db = $container->get('account68_int');
 	}
 
 	/*public function __construct(Connection $db)
