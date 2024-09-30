@@ -18,7 +18,7 @@ use Arminfrey\GeburtstagsmailBundle\DependencyInjection\ArminfreyGeburtstagsmail
 class ArminfreyGeburtstagsmailBundle extends Bundle
 {
 	const DEFAULT_LANGUAGE = 'de';
-	//private $db;
+	private $db;
 		
    	public function getPath(): string
     	{
@@ -31,7 +31,7 @@ class ArminfreyGeburtstagsmailBundle extends Bundle
 		
 	}
 
-	public function __construct(Connection $db)
+	public function __construct()
     	{
         	$this->db = $container->get('doctrine.dbal.default_connection');
     	}
