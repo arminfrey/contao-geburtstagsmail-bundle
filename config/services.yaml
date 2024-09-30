@@ -7,3 +7,8 @@ services:
 Arminfrey\ArminfreyGeburtstagsmailBundle\:
     resource: ../../src
     exclude: ../../src/{Model,Resources,Tests,Widget}
+
+    class: Arminfrey\GeburtstagsmailBundle\ArminfreyGeburtstagsmailBundle
+        public: true
+        arguments:
+            - '@database_connection'
