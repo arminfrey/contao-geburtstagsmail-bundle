@@ -27,13 +27,13 @@ class ArminfreyGeburtstagsmailBundle extends Bundle
 
 	public function build(ContainerBuilder $container): void
 	{
-		parent::build($container);
-		
+		parent::build($container);		
 	}
 
 	public function __construct()
     	{
-        	$this->db = $container->get('doctrine.dbal.default_connection');
+        	var_dump($container);
+		$this->db = $container->get('doctrine.dbal.default_connection');
     	}
 
     /**
