@@ -3,7 +3,7 @@ services:
         autowire: true
         autoconfigure: true
     app.stats:
-        class: App\Stats
+        class: App\ArminfreyGeburtstagsmailBundle
         arguments:
             - '@database_connection'
         public: true
