@@ -4,7 +4,7 @@ services:
         autoconfigure: true
     
 
-Arminfrey\ArminfreyGeburtstagsmailBundle\:
+Arminfrey\GeburtstagsmailBundle:
     resource: ../../src
     exclude: ../../src/{Model,Resources,Tests,Widget}
     arguments:
