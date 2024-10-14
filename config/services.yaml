@@ -2,10 +2,17 @@ services:
     _defaults:
         autowire: true
         autoconfigure: true
-    
+    app.stats:
+        class: App\Stats
+        arguments:
+            - '@database_connection'
+        public: true
 
 Arminfrey\GeburtstagsmailBundle:
     resource: ../../src
     exclude: ../../src/{Model,Resources,Tests,Widget}
     arguments:
             - '@doctrine.dbal.account68_int_connection'
+    public: true
+
+    
