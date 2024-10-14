@@ -22,7 +22,7 @@ use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 /**
  * Class ArminfreyGeburtstagsmailExtension
  */
-class ArminfreyGeburtstagsmailExtension extends Extension
+class GeburtstagsmailExtension extends Extension
 {
 
     /**
