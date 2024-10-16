@@ -18,7 +18,7 @@ use Symfony\Component\HttpFoundation\Response;
 class ArminfreyGeburtstagsmailBundle extends Bundle
 {
 	const DEFAULT_LANGUAGE = 'de';
-	private $db;
+	private Connection $connection;
 		
    	public function getPath(): string
     	{
@@ -30,9 +30,13 @@ class ArminfreyGeburtstagsmailBundle extends Bundle
 		parent::build($container);
 	}*/
 
-	public function __construct(Connection $connection)
-    	{
-    	}
+	
+
+    public function __construct(Connection $connection)
+    {
+        $this->connection = $connection;
+    }
+
 
     /**
 	 * Execute the sender manually from backend and get a result page.
