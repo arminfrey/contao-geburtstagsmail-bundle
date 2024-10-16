@@ -3,11 +3,11 @@ services:
         autowire: true
         autoconfigure: true
         public: true
-
+    Arminfrey\ArminfreyGeburtstagsmailBundle:
+        resource: ../../src
+        exclude: ../../src/{Model,Resources,Tests,Widget}
         
-Arminfrey\ArminfreyGeburtstagsmailBundle:
-    resource: ../../src
-    exclude: ../../src/{Model,Resources,Tests,Widget}
-    arguments:
-           $connection: '@doctrine.dbal.account68_int_connection'
+       Arminfrey\GeburtstagsmailBundle\Service\SendMailService:
+            arguments:
+                $connection: '@doctrine.dbal.default_connection'
       
