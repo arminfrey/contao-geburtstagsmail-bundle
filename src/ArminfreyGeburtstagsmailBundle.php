@@ -30,11 +30,8 @@ class ArminfreyGeburtstagsmailBundle extends Bundle
 		parent::build($container);
 	}*/
 
-	public function __construct(private readonly Connection $connection)
+	public function __construct(Connection $connection)
     	{
-    	
-    	
-        	//$this->db = $container->get('doctrine.dbal.account68_int_connection');
     	}
 
     /**
