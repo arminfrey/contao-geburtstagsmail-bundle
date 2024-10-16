@@ -1,6 +1,13 @@
 namespace Arminfrey\GeburtstagsmailBundle\Service;
 
+use Contao\Backend;
+use Contao\System;
 use Doctrine\DBAL\Connection;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Arminfrey\GeburtstagsmailBundle\DependencyInjection\ArminfreyGeburtstagsmailExtension;
+/*use Arminfrey\GeburtstagsmailBundle\Model\ArminfreyGeburtstagsmailModel;*/
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class SendMailService
 {
