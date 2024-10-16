@@ -25,10 +25,10 @@ class ArminfreyGeburtstagsmailBundle extends Bundle
 		return \dirname(__DIR__);
    	}
 
-	public function build(ContainerBuilder $container): void
+	/*public function build(ContainerBuilder $container): void
 	{
 		parent::build($container);
-	}
+	}*/
 
 	public function __construct(private readonly Connection $connection)
     	{
