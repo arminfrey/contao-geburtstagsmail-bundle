@@ -1,11 +1,8 @@
 <?php
 // src/GeburtstagsmailBundle.php
-namespace Arminfrey\GeburtstagsmailBundle;
-
+namespace Arminfrey\ArminfreyGeburtstagsmailBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
-
-
 
 class ArminfreyGeburtstagsmailBundle extends Bundle
 {
