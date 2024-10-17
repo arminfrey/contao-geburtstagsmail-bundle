@@ -7,7 +7,7 @@ use Contao\System;
 use Doctrine\DBAL\Connection;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Arminfrey\GeburtstagsmailBundle\DependencyInjection\ArminfreyGeburtstagsmailExtension;
-/*use Arminfrey\GeburtstagsmailBundle\Model\ArminfreyGeburtstagsmailModel;*/
+use Arminfrey\GeburtstagsmailBundle\Model\ArminfreyGeburtstagsmailModel;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -29,7 +29,7 @@ class SendMailService
 			$result = $this->sendBirthdayMail();
 			
 			// Create template object
-			$objTemplate = new \BackendTemplate('be_birthday-mailer');
+			$objTemplate = new \BackendTemplate('../templates/backend/be_birthday-mailer');
 			$objTemplate->backLink = '<a href="'.ampersand(str_replace('&key=sendBirthdayMail', '', $this->Environment->request)).'" class="header_back" title="'.specialchars($GLOBALS['TL_LANG']['MSC']['backBT']).'" accesskey="b">'.$GLOBALS['TL_LANG']['MSC']['backBT'].'</a>';
 			$objTemplate->headline = $GLOBALS['TL_LANG']['tl_geburtstagsmail']['manualExecution']['headline'];
 			$objTemplate->sendingHeadline = $GLOBALS['TL_LANG']['tl_geburtstagsmail']['manualExecution']['sendingHeadline'];
