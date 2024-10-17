@@ -5,6 +5,7 @@ namespace Arminfrey\GeburtstagsmailBundle\Service;
 use Contao\Backend;
 use Contao\System;
 use Doctrine\DBAL\Connection;
+use Doctrine\DBAL\Statement;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Arminfrey\GeburtstagsmailBundle\DependencyInjection\ArminfreyGeburtstagsmailExtension;
 /*use Arminfrey\GeburtstagsmailBundle\Model\ArminfreyGeburtstagsmailModel;*/
@@ -87,8 +88,8 @@ class SendMailService
 			. "JOIN tl_member_group ON tl_member_group.id = CONVERT(tl_member.groups using UTF8) "
 			. "JOIN tl_geburtstagsmail ON tl_geburtstagsmail.membergroup = tl_member_group.id "
 			. "ORDER BY tl_member.id, tl_geburtstagsmail.priority DESC");*/
-											
-		if($config->numRows < 1)
+				
+		if(count($config) < 1)
 		{
 			return;
 		}
