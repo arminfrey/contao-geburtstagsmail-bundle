@@ -66,7 +66,8 @@ class SendMailService
 				$objTemplate->developerMessage = sprintf($GLOBALS['TL_LANG']['tl_geburtstagsmail']['manualExecution']['developerMessage'], $GLOBALS['TL_CONFIG']['birthdayMailerDeveloperModeEmail']);
 			}
 			
-			return $this->replaceInsertTags($objTemplate->parse());
+			//return $this->replaceInsertTags($objTemplate->parse());
+			return \Contao\Controller::replaceInsertTags($objTemplate->parse());
 		}
 		return;
 	}
