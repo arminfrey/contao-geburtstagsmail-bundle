@@ -33,6 +33,7 @@ class SendMailService
 			
 			// Create template object
 			$objTemplate = new BackendTemplate('../src/templates/backend/be_birthday-mailer');
+			
 			//$objTemplate = new BackendTemplate('be_birthday-mailer');
 			$cleanedUrl = str_replace('&key=sendBirthdayMail', '', $this->Environment->request);
 			$cleanedUrl = str_replace('&', '&amp;', $cleanedUrl);
