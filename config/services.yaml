@@ -8,6 +8,6 @@ services:
         resource: ../src
         exclude: ../src/{Model,Resources,Tests,Widget}
 
-    Arminfrey\GeburtstagsmailBundle\Service\SendMailService\:
+    Arminfrey\GeburtstagsmailBundle\Service\SendMailService:
         arguments:
             $connection: '@doctrine.dbal.default_connection'
