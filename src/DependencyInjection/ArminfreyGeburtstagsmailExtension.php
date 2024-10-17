@@ -12,7 +12,7 @@ declare(strict_types=1);
  * @link https://github.com/arminfrey/contao-geburtstagsmail-bundle
  */
 
-namespace Arminfrey\ArminfreyGeburtstagsmailBundle\DependencyInjection;
+namespace Arminfrey\GeburtstagsmailBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
