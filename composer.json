@@ -16,7 +16,7 @@
 	"require":{
 		"php":"^8.0",
 		"contao/core-bundle":"^5.0",
-		"doctrine/dbal": "^4.0"
+		"doctrine/dbal": "^4.2"
 	},
 	"autoload": {
         	"psr-4": {
