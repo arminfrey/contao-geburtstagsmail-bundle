@@ -67,23 +67,26 @@ class SendMailService
 		$notSendCauseOfError = array();
 		$notSendCauseOfAbortion = array();
 
-		/*$config = $this->db->executeQuery("SELECT tl_member.*, "
+		sql$ = "SELECT tl_member.*, "
 			. "tl_member_group.name as memberGroupName, tl_member_group.disable as memberGroupDisable, tl_member_group.start as memberGroupStart, tl_member_group.stop as memberGroupStop, "
 			. "tl_geburtstagsmail.sender as mailSender, tl_geburtstagsmail.senderName as mailSenderName, tl_geburtstagsmail.mailCopy as mailCopy, tl_geburtstagsmail.mailBlindCopy as mailBlindCopy, "
 			. "tl_geburtstagsmail.mailUseCustomText as mailUseCustomText, tl_geburtstagsmail.mailTextKey as mailTextKey "
 			. "FROM tl_member "
 			. "JOIN tl_member_group ON tl_member_group.id = CONVERT(tl_member.groups using UTF8) "
 			. "JOIN tl_geburtstagsmail ON tl_geburtstagsmail.membergroup = tl_member_group.id "
-			. "ORDER BY tl_member.id, tl_geburtstagsmail.priority DESC")
-			 ->fetchAll();*/
-		$config = $this->connection->fetchAll("SELECT tl_member.*, "
+			. "ORDER BY tl_member.id, tl_geburtstagsmail.priority DESC";
+		$stmt = $this->connection->prepare($sql);
+    		$stmt->execute();
+		$config = $stmt->fetchAll();
+
+		/*$config = $this->connection->fetchAll("SELECT tl_member.*, "
 			. "tl_member_group.name as memberGroupName, tl_member_group.disable as memberGroupDisable, tl_member_group.start as memberGroupStart, tl_member_group.stop as memberGroupStop, "
 			. "tl_geburtstagsmail.sender as mailSender, tl_geburtstagsmail.senderName as mailSenderName, tl_geburtstagsmail.mailCopy as mailCopy, tl_geburtstagsmail.mailBlindCopy as mailBlindCopy, "
 			. "tl_geburtstagsmail.mailUseCustomText as mailUseCustomText, tl_geburtstagsmail.mailTextKey as mailTextKey "
 			. "FROM tl_member "
 			. "JOIN tl_member_group ON tl_member_group.id = CONVERT(tl_member.groups using UTF8) "
 			. "JOIN tl_geburtstagsmail ON tl_geburtstagsmail.membergroup = tl_member_group.id "
-			. "ORDER BY tl_member.id, tl_geburtstagsmail.priority DESC");
+			. "ORDER BY tl_member.id, tl_geburtstagsmail.priority DESC");*/
 											
 		if($config->numRows < 1)
 		{
