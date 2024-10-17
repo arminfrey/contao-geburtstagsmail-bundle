@@ -42,16 +42,22 @@ class SendMailService
 			$objTemplate->sendingHeadline = $GLOBALS['TL_LANG']['tl_geburtstagsmail']['manualExecution']['sendingHeadline'];
 			$objTemplate->success = sprintf($GLOBALS['TL_LANG']['tl_geburtstagsmail']['manualExecution']['successMessage'], $result['success']);
 			
-			$objTemplate->failed = sizeof($result['failed']) > 0;
-			$objTemplate->failureMessage = sprintf($GLOBALS['TL_LANG']['tl_geburtstagsmail']['manualExecution']['failureMessage'], sizeof($result['failed']));
+			$objTemplate->failed = is_array($result['failed']) && sizeof($result['failed']) > 0;
+			$objTemplate->failureMessage = sprintf(
+    					$GLOBALS['TL_LANG']['tl_geburtstagsmail']['manualExecution']['failureMessage'],
+    					is_array($result['failed']) ? sizeof($result['failed']) : 0  // Default to 0 if not an array
+			);
 			$objTemplate->failureTableHead = $GLOBALS['TL_LANG']['tl_geburtstagsmail']['manualExecution']['failureTableHead'];
-			$objTemplate->failures = $result['failed'];
+			$objTemplate->failures = $result['failed'] ?? [];  // Use null coalescing operator for safety
 			$objTemplate->failureInfo = $GLOBALS['TL_LANG']['tl_geburtstagsmail']['manualExecution']['failureInfo'];
-			
-			$objTemplate->aborted = sizeof($result['aborted']) > 0;
-			$objTemplate->abortionMessage = sprintf($GLOBALS['TL_LANG']['tl_geburtstagsmail']['manualExecution']['abortionMessage'], sizeof($result['aborted']));
+						
+			$objTemplate->aborted = is_array($result['aborted']) && sizeof($result['aborted']) > 0;
+			$objTemplate->abortionMessage = sprintf(
+    				$GLOBALS['TL_LANG']['tl_geburtstagsmail']['manualExecution']['abortionMessage'],
+    				is_array($result['aborted']) ? sizeof($result['aborted']) : 0  // Default to 0 if not an array
+			);
 			$objTemplate->abortionTableHead = $GLOBALS['TL_LANG']['tl_geburtstagsmail']['manualExecution']['abortionTableHead'];
-			$objTemplate->abortions = $result['aborted'];
+			$objTemplate->abortions = $result['aborted'] ?? [];  // Use null coalescing operator for safety
 			$objTemplate->abortionInfo = $GLOBALS['TL_LANG']['tl_geburtstagsmail']['manualExecution']['abortionInfo'];
 			
 			if ($GLOBALS['TL_CONFIG']['birthdayMailerDeveloperMode'])
