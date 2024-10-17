@@ -32,10 +32,9 @@ class SendMailService
 			$result = $this->sendBirthdayMail();
 			
 			// Create template object
-			sprintf(\dirname(__DIR__));
-			$objTemplate = new BackendTemplate('/src/templates/backend/be_birthday-mailer');
+			//$objTemplate = new BackendTemplate('/src/templates/backend/be_birthday-mailer');
 			
-			//$objTemplate = new BackendTemplate('be_birthday-mailer');
+			$objTemplate = new BackendTemplate('be_geburtstagsmail');
 			$cleanedUrl = str_replace('&key=sendBirthdayMail', '', $this->Environment->request);
 			$cleanedUrl = str_replace('&', '&amp;', $cleanedUrl);
 			$escapedTitle = StringUtil::specialchars($GLOBALS['TL_LANG']['MSC']['backBT']);
