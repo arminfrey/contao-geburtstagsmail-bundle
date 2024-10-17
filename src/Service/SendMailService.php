@@ -5,6 +5,7 @@ namespace Arminfrey\GeburtstagsmailBundle\Service;
 use Contao\Backend;
 use Contao\BackendTemplate; 
 use Contao\System;
+use Contao\StringUtil;
 use Doctrine\DBAL\Connection;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Arminfrey\GeburtstagsmailBundle\DependencyInjection\ArminfreyGeburtstagsmailExtension;
