@@ -67,7 +67,7 @@ class SendMailService
 			}
 			
 			//return $this->replaceInsertTags($objTemplate->parse());
-			return \Contao\Controller::replaceInsertTags($objTemplate->parse());
+			return replaceInsertTags($objTemplate->parse());
 		}
 		return;
 	}
