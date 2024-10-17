@@ -77,7 +77,7 @@ class SendMailService
 			. "ORDER BY tl_member.id, tl_geburtstagsmail.priority DESC";
 		$stmt = $this->connection->prepare($sql);
     		$stmt->execute();
-		$config = $stmt->fetchAll();
+		$config = $stmt->fetchAllAssociative();
 
 		/*$config = $this->connection->fetchAll("SELECT tl_member.*, "
 			. "tl_member_group.name as memberGroupName, tl_member_group.disable as memberGroupDisable, tl_member_group.start as memberGroupStart, tl_member_group.stop as memberGroupStop, "
