@@ -1,4 +1,6 @@
-namespace Arminfrey\ArminfreyGeburtstagsmailBundle\Service;
+<?php
+
+namespace Arminfrey\GeburtstagsmailBundle\Service;
 
 use Contao\Backend;
 use Contao\System;
