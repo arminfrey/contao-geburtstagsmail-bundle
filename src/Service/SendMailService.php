@@ -67,7 +67,7 @@ class SendMailService
 			}
 			
 			//return $this->replaceInsertTags($objTemplate->parse());
-			return Controller::replaceInsertTags($objTemplate->parse());
+			return $objTemplate->parse();
 		}
 		return;
 	}
