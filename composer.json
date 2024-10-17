@@ -20,7 +20,7 @@
 	},
 	"autoload": {
         	"psr-4": {
-            		"Arminfrey\\ArminfreyGeburtstagsmailBundle\\": "src/"
+            		"Arminfrey\\GeburtstagsmailBundle\\": "src/"
        		 },
 		"classmap": [
             		"src/"
