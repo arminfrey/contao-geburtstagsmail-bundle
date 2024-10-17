@@ -35,7 +35,8 @@ class SendMailService
 			$objTemplate = new BackendTemplate('be_birthday-mailer');
 			$cleanedUrl = str_replace('&key=sendBirthdayMail', '', $this->Environment->request);
 			$cleanedUrl = str_replace('&', '&amp;', $cleanedUrl);
-			$objTemplate->backLink = '<a href="' . $cleanedUrl . '" class="header_back" title="' . \specialchars($GLOBALS['TL_LANG']['MSC']['backBT']) . '" accesskey="b">' . $GLOBALS['TL_LANG']['MSC']['backBT'] . '</a>';
+			$escapedTitle = \specialchars($GLOBALS['TL_LANG']['MSC']['backBT']);
+			$objTemplate->backLink = '<a href="' . $cleanedUrl . '" class="header_back" title="' . $escapedTitle . '" accesskey="b">' . $escapedTitle . '</a>';
 			//$objTemplate->backLink = '<a href="'.\ampersand(str_replace('&key=sendBirthdayMail', '', $this->Environment->request)).'" class="header_back" title="'.specialchars($GLOBALS['TL_LANG']['MSC']['backBT']).'" accesskey="b">'.$GLOBALS['TL_LANG']['MSC']['backBT'].'</a>';
 			$objTemplate->headline = $GLOBALS['TL_LANG']['tl_geburtstagsmail']['manualExecution']['headline'];
 			$objTemplate->sendingHeadline = $GLOBALS['TL_LANG']['tl_geburtstagsmail']['manualExecution']['sendingHeadline'];
