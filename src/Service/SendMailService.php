@@ -32,8 +32,6 @@ class SendMailService
 			$result = $this->sendBirthdayMail();
 			
 			// Create template object
-			//$objTemplate = new BackendTemplate('/src/templates/backend/be_birthday-mailer');
-			//var_dump(\dirname(__DIR__). '/templates/backend/be_geburtstagsmail.html5');
 			$objTemplate = new BackendTemplate('be_geburtstagsmail');
 			$cleanedUrl = str_replace('&key=sendBirthdayMail', '', $this->Environment->request);
 			$cleanedUrl = str_replace('&', '&amp;', $cleanedUrl);
@@ -83,18 +81,6 @@ class SendMailService
 		$notSendCauseOfError = array();
 		$notSendCauseOfAbortion = array();
 
-		/*$sql = "SELECT tl_member.*, "
-			. "tl_member_group.name as memberGroupName, tl_member_group.disable as memberGroupDisable, tl_member_group.start as memberGroupStart, tl_member_group.stop as memberGroupStop, "
-			. "tl_geburtstagsmail.sender as mailSender, tl_geburtstagsmail.senderName as mailSenderName, tl_geburtstagsmail.mailCopy as mailCopy, tl_geburtstagsmail.mailBlindCopy as mailBlindCopy, "
-			. "tl_geburtstagsmail.mailUseCustomText as mailUseCustomText, tl_geburtstagsmail.mailTextKey as mailTextKey "
-			. "FROM tl_member "
-			. "JOIN tl_member_group ON tl_member_group.id = CONVERT(tl_member.groups using UTF8) "
-			. "JOIN tl_geburtstagsmail ON tl_geburtstagsmail.membergroup = tl_member_group.id "
-			. "ORDER BY tl_member.id, tl_geburtstagsmail.priority DESC";
-		$stmt = $this->connection->prepare($sql);
-    		$stmt->execute();
-		$config = $stmt->fetchAllAssociative();*/
-		
 		$config = $this->connection->fetchAllAssociative("SELECT tl_member.*, "
 			. "tl_member_group.name as memberGroupName, tl_member_group.disable as memberGroupDisable, tl_member_group.start as memberGroupStart, tl_member_group.stop as memberGroupStop, "
 			. "tl_geburtstagsmail.sender as mailSender, tl_geburtstagsmail.senderName as mailSenderName, tl_geburtstagsmail.mailCopy as mailCopy, tl_geburtstagsmail.mailBlindCopy as mailBlindCopy, "
@@ -106,7 +92,7 @@ class SendMailService
 
 		foreach ($config as $conf) 
 		{
-				if(is_numeric($config->dateOfBirth)
+				if(is_numeric($conf->dateOfBirth)
 				&&
 				(
 					(
@@ -116,16 +102,16 @@ class SendMailService
 					)
 					||
 					(
-						date("d.m") == date("d.m", $config->dateOfBirth)
+						date("d.m") == date("d.m", $conf->dateOfBirth)
 					)
 				)
 				&&
 				(
-					$this->isMemberActive($config)
+					$this->isMemberActive($conf)
 					&&
-					$this->isMemberGroupActive($config)
+					$this->isMemberGroupActive($conf)
 					&&
-					$this->allowSendingDuplicates($alreadySendTo, $config)
+					$this->allowSendingDuplicates($alreadySendTo, $conf)
 				)
 				)
 				{
@@ -142,18 +128,18 @@ class SendMailService
 				
 				if (!$blnAbortSendMail)
 				{
-					if ($this->sendMail($config))
+					if ($this->sendMail($conf))
 					{
-						$alreadySendTo[] =  $config->id;
+						$alreadySendTo[] =  $conf->id;
 					}
 					else
 					{
-						$notSendCauseOfError[] =  array('id' => $config->id, 'firstname' => $config->firstname, 'lastname' => $config->lastname, 'email' => $config->email);
+						$notSendCauseOfError[] =  array('id' => $conf->id, 'firstname' => $conf->firstname, 'lastname' => $conf->lastname, 'email' => $conf->email);
 					}
 				}
 				else
 				{
-					$notSendCauseOfAbortion[] =  array('id' => $config->id, 'firstname' => $config->firstname, 'lastname' => $config->lastname, 'email' => $config->email);
+					$notSendCauseOfAbortion[] =  array('id' => $conf->id, 'firstname' => $conf->firstname, 'lastname' => $conf->lastname, 'email' => $conf->email);
 				}
 			}
 		}
