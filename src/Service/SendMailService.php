@@ -103,16 +103,10 @@ class SendMailService
 			. "JOIN tl_member_group ON tl_member_group.id = CONVERT(substr(tl_member.groups,-4,1) using UTF8) "
 			. "JOIN tl_geburtstagsmail ON tl_geburtstagsmail.membergroup = tl_member_group.id "
 			. "ORDER BY tl_member.id, tl_geburtstagsmail.priority DESC");
-				
-		if(count($config) < 1)
+
+		foreach ($config as $conf) 
 		{
-			return;
-		}
-		
-		while($config->next())
-		{
-			if(
-				is_numeric($config->dateOfBirth)
+				if(is_numeric($config->dateOfBirth)
 				&&
 				(
 					(
@@ -133,8 +127,8 @@ class SendMailService
 					&&
 					$this->allowSendingDuplicates($alreadySendTo, $config)
 				)
-			)
-			{
+				)
+				{
 				// now check via custom hook, if sending should be aborted
 				$blnAbortSendMail = false;
 				if (isset($GLOBALS['TL_HOOKS']['birthdayMailerAbortSendMail']) && is_array($GLOBALS['TL_HOOKS']['birthdayMailerAbortSendMail']))
