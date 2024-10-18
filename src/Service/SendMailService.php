@@ -193,7 +193,7 @@ class SendMailService
 		if ($GLOBALS['TL_CONFIG']['birthdayMailerDeveloperMode'] || $GLOBALS['TL_CONFIG']['birthdayMailerLogDebugInfo'])
 		{
 			$mailTextUsageOutput = $config->mailUseCustomText ? 'yes' : 'no';
-			\Contao\System::log('Geburtstagsmailer: These are additional debugging information that will only be logged in developer mode or if debugging is enabled.'
+			\Contao\Log::add('Geburtstagsmailer: These are additional debugging information that will only be logged in developer mode or if debugging is enabled.'
 									 . ' | Userlanguage = ' . $config->language
 								   . ' | used language = ' . $language
 								   . ' | mailTextUsage = ' . $mailTextUsageOutput
@@ -201,7 +201,8 @@ class SendMailService
 								   . ' | email = ' . $config->email
 								   . ' | subject = ' . $emailSubject
 								   . ' | text = ' . $emailText
-								   . ' | html = ' . $emailHtml, 'GeburtstagsmailBundle sendMail()', TL_CRON);
+								   . ' | html = ' . $emailHtml, 'GeburtstagsmailBundle sendMail()', TL_CRON, \Contao\Log::DEBUG);
+			
 		}
 		
 		$objEmail = new \Email();
