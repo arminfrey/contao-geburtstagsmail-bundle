@@ -88,32 +88,15 @@ class SendMailService
 			. "FROM tl_member "
 			. "JOIN tl_member_group ON tl_member_group.id = CONVERT(substr(tl_member.groups,-4,1) using UTF8) "
 			. "JOIN tl_geburtstagsmail ON tl_geburtstagsmail.membergroup = tl_member_group.id "
+			. "WHERE tl_member.disable = 0 "
+			. "AND DATE_FORMAT(CURRENT_DATE(), '%d.%c') = DATE_FORMAT(DATE_ADD(FROM_UNIXTIME(0), interval tl_member.dateOfBirth second), '%d.%c') "
 			. "ORDER BY tl_member.id, tl_geburtstagsmail.priority DESC");
 
 		foreach ($config as $conf) 
 		{
-				if(is_numeric($conf->dateOfBirth)
-				&&
-				(
-					(
-						$GLOBALS['TL_CONFIG']['birthdayMailerDeveloperMode']
-						&&
-						$GLOBALS['TL_CONFIG']['birthdayMailerDeveloperModeIgnoreDate']
-					)
-					||
-					(
-						date("d.m") == date("d.m", $conf->dateOfBirth)
-					)
-				)
-				&&
-				(
-					$this->isMemberActive($conf)
-					&&
-					$this->isMemberGroupActive($conf)
-					&&
-					$this->allowSendingDuplicates($alreadySendTo, $conf)
-				)
-				)
+				if(($GLOBALS['TL_CONFIG']['birthdayMailerDeveloperMode'] && 
+				   $GLOBALS['TL_CONFIG']['birthdayMailerDeveloperModeIgnoreDate']) 
+				&& ($this->allowSendingDuplicates($alreadySendTo, $conf)))
 				{
 				// now check via custom hook, if sending should be aborted
 				$blnAbortSendMail = false;
@@ -269,7 +252,7 @@ class SendMailService
 	 * Checks if the member is active.
 	 * @return boolean
 	 */
-	private function isMemberActive($config)
+	/*private function isMemberActive($config)
 	{
 		if ($config->disable ||
 			(strlen($config->start) > 0 &&
@@ -280,13 +263,13 @@ class SendMailService
 			return false;
 		}
 		return true;
-	}
+	}*/
 
 	/**
 	 * Checks if the associated group is active.
 	 * @return boolean
 	 */
-	private function isMemberGroupActive($config)
+	/*private function isMemberGroupActive($config)
 	{
 		if ($config->memberGroupDisable ||
 			(strlen($config->memberGroupStart) > 0 &&
@@ -297,7 +280,7 @@ class SendMailService
 			return false;
 		}
 		return true;
-	}
+	}*/
 	
 	/**
 	 * Checks if sending duplicate emails is allowed.
