@@ -3,7 +3,7 @@
 namespace Arminfrey\GeburtstagsmailBundle\Service;
 
 use Contao\Backend;
-use Contao\BackendTemplate; 
+//use Contao\BackendTemplate; 
 use Contao\System;
 use Contao\StringUtil;
 use Contao\Controller;
@@ -33,8 +33,8 @@ class SendMailService
 			
 			// Create template object
 			//$objTemplate = new BackendTemplate('/src/templates/backend/be_birthday-mailer');
-			var_dump(\dirname(__DIR__). '../templates/backend/be_geburtstagsmail.html5');
-			$objTemplate = new BackendTemplate(\dirname(__DIR__) . '../templates/backend/be_geburtstagsmail.html5');
+			var_dump(\dirname(__DIR__). '/templates/backend/be_geburtstagsmail.html5');
+			$objTemplate = new BackendTemplate(\dirname(__DIR__) . '/templates/backend/be_geburtstagsmail');
 			$cleanedUrl = str_replace('&key=sendBirthdayMail', '', $this->Environment->request);
 			$cleanedUrl = str_replace('&', '&amp;', $cleanedUrl);
 			$escapedTitle = StringUtil::specialchars($GLOBALS['TL_LANG']['MSC']['backBT']);
