@@ -184,7 +184,7 @@ class SendMailService
 			$language = self::DEFAULT_LANGUAGE;
 		}
 		
-		$this->loadLanguageFile('Geburtstagsmailer', $language);
+		\System::loadLanguageFile('Geburtstagsmailer', $language);
 		
 		$emailSubject = $this->getEmailText('subject', $config, $language);
 		$emailText = $this->getEmailText('text', $config, $language);
