@@ -17,6 +17,7 @@ use Symfony\Component\HttpFoundation\Response;
 class SendMailService
 {
     private Connection $connection;
+	const DEFAULT_LANGUAGE = 'de';
 
     public function __construct(Connection $connection)
     {
