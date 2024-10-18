@@ -3,7 +3,7 @@
 namespace Arminfrey\GeburtstagsmailBundle\Service;
 
 use Contao\Backend;
-//use Contao\BackendTemplate; 
+use Contao\BackendTemplate; 
 use Contao\System;
 use Contao\StringUtil;
 use Contao\Controller;
