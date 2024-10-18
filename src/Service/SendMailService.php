@@ -128,7 +128,7 @@ class SendMailService
 			}
 		}
 		
-		$this->log('BirthdayMailer: Daily sending of birthday mail finished. Send ' . sizeof($alreadySendTo) . ' emails. '
+		\Contao\System::log('BirthdayMailer: Daily sending of birthday mail finished. Send ' . sizeof($alreadySendTo) . ' emails. '
 							. sizeof($notSendCauseOfError) . ' emails could not be send due to errors. '
 							. sizeof($notSendCauseOfAbortion) . ' emails were aborted due to custom hooks. See birthdaymails.log for details.', 'GeburtstagsmailBundle sendBirthdayMail()', TL_CRON);
 		
