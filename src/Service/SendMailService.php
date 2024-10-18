@@ -100,7 +100,7 @@ class SendMailService
 			. "tl_geburtstagsmail.sender as mailSender, tl_geburtstagsmail.senderName as mailSenderName, tl_geburtstagsmail.mailCopy as mailCopy, tl_geburtstagsmail.mailBlindCopy as mailBlindCopy, "
 			. "tl_geburtstagsmail.mailUseCustomText as mailUseCustomText, tl_geburtstagsmail.mailTextKey as mailTextKey "
 			. "FROM tl_member "
-			. "JOIN tl_member_group ON tl_member_group.id = CONVERT(tl_member.groups using UTF8) "
+			. "JOIN tl_member_group ON tl_member_group.id = CONVERT(substr(tl_member.groups,-4,1) using UTF8) "
 			. "JOIN tl_geburtstagsmail ON tl_geburtstagsmail.membergroup = tl_member_group.id "
 			. "ORDER BY tl_member.id, tl_geburtstagsmail.priority DESC");
 				
