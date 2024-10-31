@@ -26,10 +26,10 @@
             		"src/"
         		],
        		"exclude-from-classmap": [
-           		"contao/config",
-            		"contao/dca",
-            		"contao/languages",
-            		"templates"
+           		"src/contao/config",
+            		"src/contao/dca",
+            		"src/contao/languages",
+            		"src/templates"
         	]
     	},
 	"extra":{
