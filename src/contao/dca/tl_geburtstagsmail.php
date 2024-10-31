@@ -55,7 +55,7 @@ $GLOBALS['TL_DCA']['tl_geburtstagsmail'] = [
 		]
 	],
 	'operations' => [
-		edit' => [
+		'edit' => [
 			'label'               => &$GLOBALS['TL_LANG']['tl_geburtstagsmail']['edit'],
 			'href'                => 'act=edit',
 			'icon'                => 'edit.gif'
