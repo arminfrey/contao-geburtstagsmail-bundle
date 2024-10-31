@@ -18,37 +18,32 @@ $GLOBALS['TL_DCA']['tl_settings']['subpalettes']['birthdayMailerDeveloperMode'] 
 /**
  * Add fields
  */
-$GLOBALS['TL_DCA']['tl_settings']['fields']['birthdayMailerAllowDuplicates'] = array(
+$GLOBALS['TL_DCA']['tl_settings']['fields']['birthdayMailerAllowDuplicates'] = [
 	'label'     => &$GLOBALS['TL_LANG']['tl_settings']['birthdayMailerAllowDuplicates'],
 	'inputType' => 'checkbox',
-	'eval'      => array('tl_class'=>'w50')
-);
+	'eval'      => ['tl_class'=>'w50']
+];
 
-$GLOBALS['TL_DCA']['tl_settings']['fields']['birthdayMailerLogDebugInfo'] = array(
+$GLOBALS['TL_DCA']['tl_settings']['fields']['birthdayMailerLogDebugInfo'] = [
 	'label'     => &$GLOBALS['TL_LANG']['tl_settings']['birthdayMailerLogDebugInfo'],
 	'inputType' => 'checkbox',
-	'eval'      => array('tl_class'=>'w50')
-);
+	'eval'      => ['tl_class'=>'w50']
+];
 
-$GLOBALS['TL_DCA']['tl_settings']['fields']['birthdayMailerDeveloperMode'] = array
-(
+$GLOBALS['TL_DCA']['tl_settings']['fields']['birthdayMailerDeveloperMode'] = [
 	'label'                   => &$GLOBALS['TL_LANG']['tl_settings']['birthdayMailerDeveloperMode'],
 	'inputType'               => 'checkbox',
-	'eval'                    => array('submitOnChange'=>true, 'tl_class'=>'w50 clr')
-);
+	'eval'                    => ['submitOnChange'=>true, 'tl_class'=>'w50 clr']
+];
 
-$GLOBALS['TL_DCA']['tl_settings']['fields']['birthdayMailerDeveloperModeEmail'] = array
-(
+$GLOBALS['TL_DCA']['tl_settings']['fields']['birthdayMailerDeveloperModeEmail'] = [
 	'label'                   => &$GLOBALS['TL_LANG']['tl_settings']['birthdayMailerDeveloperModeEmail'],
 	'inputType'               => 'text',
-	'eval'                    => array('mandatory'=>true, 'rgxp'=>'email', 'tl_class'=>'w50 clr')
-);
+	'eval'                    => ['mandatory'=>true, 'rgxp'=>'email', 'tl_class'=>'w50 clr']
+];
 
-$GLOBALS['TL_DCA']['tl_settings']['fields']['birthdayMailerDeveloperModeIgnoreDate'] = array
-(
+$GLOBALS['TL_DCA']['tl_settings']['fields']['birthdayMailerDeveloperModeIgnoreDate'] = [
 	'label'                   => &$GLOBALS['TL_LANG']['tl_settings']['birthdayMailerDeveloperModeIgnoreDate'],
 	'inputType'               => 'checkbox',
-	'eval'                    => array('tl_class'=>'w50')
-);
-
-?>
+	'eval'                    => ['tl_class'=>'w50']
+];
