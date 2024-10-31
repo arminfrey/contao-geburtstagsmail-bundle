@@ -1,5 +1,7 @@
 <?php
 
+namespace Arminfrey\GeburtstagsmailBundle\contao\dca\;
+
 /**
  * Contao Open Source CMS
  * Copyright (C) 2005-2015 Leo Feyer
