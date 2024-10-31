@@ -1,6 +1,6 @@
 <?php
 
-namespace Arminfrey\GeburtstagsmailBundle\contao\dca\;
+namespace Arminfrey\GeburtstagsmailBundle\contao\dca;
 
 /**
  * Contao Open Source CMS
