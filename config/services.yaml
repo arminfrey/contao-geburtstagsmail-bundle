@@ -6,7 +6,7 @@ services:
 
     Arminfrey\GeburtstagsmailBundle\:
         resource: ../src
-        exclude: ../src/{Model,Resources,Tests,Widget}
+        exclude: ../src/{Resources,Tests,Widget}
 
     Arminfrey\GeburtstagsmailBundle\Service\SendMailService:
         arguments:
