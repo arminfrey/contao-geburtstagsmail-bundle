@@ -12,13 +12,12 @@ use Arminfrey\GeburtstagsmailBundle\Service\SendMailService;*/
  */
 
 // Add configuration to Backend
-$GLOBALS['BE_MOD']['Geburtstagsmail']['Geburtstagsmail'] = array
-(
-	'tables'		=> array('tl_geburtstagsmail'),
+$GLOBALS['BE_MOD']['Geburtstagsmail']['Geburtstagsmail'] = [
+	'tables'		=> ['tl_geburtstagsmail'],
 	//'icon'             => \dirname(__DIR__) . '/../../assets/icon.png',
 	'icon'			=> '/../../src/assets/icon.png',
-	'sendBirthdayMail'	=> array(\Arminfrey\GeburtstagsmailBundle\Service\SendMailService::class, 'sendBirthdayMailManually'), 
-);
+	'sendBirthdayMail'	=> [\Arminfrey\GeburtstagsmailBundle\Service\SendMailService::class, 'sendBirthdayMailManually'], 
+];
 
 
 $GLOBALS['TL_MODELS']['tl_geburtstagsmail'] = \Arminfrey\GeburtstagsmailBundle\Model\ArminfreyGeburtstagsmailModel::class;
@@ -29,5 +28,5 @@ $GLOBALS['TL_MODELS']['tl_geburtstagsmail'] = \Arminfrey\GeburtstagsmailBundle\M
  * -------------------------------------------------------------------------
  */
 // Daily cron job to send birthday mails
-$GLOBALS['TL_CRON']['daily'][] = array(\Arminfrey\GeburtstagsmailBundle\Service\SendMailService::class, 'sendBirthdayMail');
+$GLOBALS['TL_CRON']['daily'][] = [\Arminfrey\GeburtstagsmailBundle\Service\SendMailService::class, 'sendBirthdayMail'];
 
