@@ -12,7 +12,8 @@ declare(strict_types=1);
  * @link https://github.com/arminfrey/contao-geburtstagsmail-bundle
  */
 
-namespace Arminfrey\GeburtstagsmailBundle\DependencyInjection;
+//namespace Arminfrey\GeburtstagsmailBundle\DependencyInjection;
+namespace Arminfrey\GeburtstagsmailBundle;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -30,8 +31,8 @@ class ArminfreyGeburtstagsmailExtension extends Extension
      */
    public function load(array $configs, ContainerBuilder $container): void
     {
-        //$loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../../config/'));
-        $loader = new YamlFileLoader($container, new FileLocator('/../../config/'))
+        $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../../config/'));
+        //$loader = new YamlFileLoader($container, new FileLocator('/../../config/'))
         $loader->load('services.yaml');
     }
 }
