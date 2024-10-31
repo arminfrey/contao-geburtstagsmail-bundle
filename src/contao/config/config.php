@@ -15,7 +15,7 @@ use Arminfrey\GeburtstagsmailBundle\Service\SendMailService;
 $GLOBALS['BE_MOD']['Geburtstagsmail']['Geburtstagsmail'] = array
 (
 	'tables'           => array('tl_geburtstagsmail'),
-	'icon'             => \dirname(__DIR__) . '/assets/icon.png',
+	'icon'             => \dirname(__DIR__) . '/../../assets/icon.png',
 	'sendBirthdayMail' => array(SendMailService::class, 'sendBirthdayMailManually'), 
 );
 
