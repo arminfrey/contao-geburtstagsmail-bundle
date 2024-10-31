@@ -14,9 +14,10 @@ use Arminfrey\GeburtstagsmailBundle\Service\SendMailService;*/
 // Add configuration to Backend
 $GLOBALS['BE_MOD']['Geburtstagsmail']['Geburtstagsmail'] = array
 (
-	'tables'           => array('tl_geburtstagsmail'),
-	'icon'             => \dirname(__DIR__) . '/../../assets/icon.png',
-	'sendBirthdayMail' => array(\Arminfrey\GeburtstagsmailBundle\Service\SendMailService::class, 'sendBirthdayMailManually'), 
+	'tables'		=> array('tl_geburtstagsmail'),
+	//'icon'             => \dirname(__DIR__) . '/../../assets/icon.png',
+	'icon'			=> '/../../src/assets/icon.png',
+	'sendBirthdayMail'	=> array(\Arminfrey\GeburtstagsmailBundle\Service\SendMailService::class, 'sendBirthdayMailManually'), 
 );
 
 
