@@ -19,119 +19,88 @@ use Contao\Image;
 /**
  * Table tl_birthdaymailer
  */
-$GLOBALS['TL_DCA']['tl_geburtstagsmail'] = array
-(
-	
+$GLOBALS['TL_DCA']['tl_geburtstagsmail'] = [
 	// Config
-	'config' => array
-	(
+	'config' => [
 		'dataContainer'           => DC_Table::class,
 		'enableVersioning'        => true,
-		'sql' => array
-		(
-			'keys' => array
-			(
-				'id' => 'primary'
-			)
-		),
-	),
-
+		'sql' => ['keys' => ['id' => 'primary']],
+	],
 	// List
-	'list' => array
-	(
-		'sorting' => array (
+	'list' => [
+		'sorting' => [
 			'panelLayout'           => 'filter,limit',
-			'fields'                => array('priority'),
+			'fields'                => ['priority'],
 			'flag'                  => 2,
 			'mode'                  => 1,
 			'disableGrouping'       => true
-		),
-		'label' => array
-		(
-			'fields'                => array('memberGroup:tl_member_group.name', 'priority'),
-			//'format'                => '%s <span style="color:#b3b3b3; padding-left:3px;">[' . $GLOBALS['TL_LANG']['tl_birthdaymail']['priority'][0] . ': %s]</span>',
-			'label_callback'        => array('tl_geburtstagsmail', 'addIcon') 
-		),
-		'global_operations' => array
-		(
-			'sendBirthdayMail' => array
-			(
-				'label'               => &$GLOBALS['TL_LANG']['tl_geburtstagsmail']['sendBirthdayMail'],
-				'href'                => 'key=sendBirthdayMail',
-				'attributes'          => 'onclick="Backend.getScrollOffset();" style="background: url(src//assets/sendBirthdayMail.png) no-repeat scroll left center transparent; margin-left: 15px; padding: 2px 0 3px 20px;"'
-			),
-			'all' => array
-			(
-				'label'               => &$GLOBALS['TL_LANG']['MSC']['all'],
-				'href'                => 'act=select',
-				'class'               => 'header_edit_all',
-				'attributes'          => 'onclick="Backend.getScrollOffset();"'
-			)
-		),
-		'operations' => array
-		(
-			'edit' => array
-			(
-				'label'               => &$GLOBALS['TL_LANG']['tl_geburtstagsmail']['edit'],
-				'href'                => 'act=edit',
-				'icon'                => 'edit.gif'
-			),
-			'copy' => array
-			(
-				'label'               => &$GLOBALS['TL_LANG']['tl_geburtstagsmail']['copy'],
-				'href'                => 'act=copy',
-				'icon'                => 'copy.gif'
-			),
-			'delete' => array
-			(
-				'label'               => &$GLOBALS['TL_LANG']['tl_geburtstagsmail']['delete'],
-				'href'                => 'act=delete',
-				'icon'                => 'delete.gif',
-				'attributes'          => 'onclick="if (!confirm(\'' . $GLOBALS['TL_LANG']['MSC']['deleteConfirm'] . '\')) return false; Backend.getScrollOffset();"'
-			),
-			'show' => array
-			(
-				'label'               => &$GLOBALS['TL_LANG']['tl_geburtstagsmail']['show'],
-				'href'                => 'act=show',
-				'icon'                => 'show.gif'
-			)
-		)
-	),
-
-	// Palettes
-	'palettes' => array
-	(
-		'__selector__' => array('mailUseCustomText'),
+			]
+	],
+	'label' => [
+		'fields'                => ['memberGroup:tl_member_group.name', 'priority'],
+		//'format'                => '%s <span style="color:#b3b3b3; padding-left:3px;">[' . $GLOBALS['TL_LANG']['tl_birthdaymail']['priority'][0] . ': %s]</span>',
+		'label_callback'        => ['tl_geburtstagsmail', 'addIcon'] 
+	],
+	'global_operations' => [
+		'sendBirthdayMail' => [
+			'label'               => &$GLOBALS['TL_LANG']['tl_geburtstagsmail']['sendBirthdayMail'],
+			'href'                => 'key=sendBirthdayMail',
+			'attributes'          => 'onclick="Backend.getScrollOffset();" style="background: url(src//assets/sendBirthdayMail.png) no-repeat scroll left center transparent; margin-left: 15px; padding: 2px 0 3px 20px;"'
+		],
+		'all' => [
+			'label'               => &$GLOBALS['TL_LANG']['MSC']['all'],
+			'href'                => 'act=select',
+			'class'               => 'header_edit_all',
+			'attributes'          => 'onclick="Backend.getScrollOffset();"'
+		]
+	],
+	'operations' => [
+		edit' => [
+			'label'               => &$GLOBALS['TL_LANG']['tl_geburtstagsmail']['edit'],
+			'href'                => 'act=edit',
+			'icon'                => 'edit.gif'
+		],
+		'copy' => [
+			'label'               => &$GLOBALS['TL_LANG']['tl_geburtstagsmail']['copy'],
+			'href'                => 'act=copy',
+			'icon'                => 'copy.gif'
+		],
+		'delete' => [
+			'label'               => &$GLOBALS['TL_LANG']['tl_geburtstagsmail']['delete'],
+			'href'                => 'act=delete',
+			'icon'                => 'delete.gif',
+			'attributes'          => 'onclick="if (!confirm(\'' . $GLOBALS['TL_LANG']['MSC']['deleteConfirm'] . '\')) return false; Backend.getScrollOffset();"'
+		],
+		'show' => [
+			'label'               => &$GLOBALS['TL_LANG']['tl_geburtstagsmail']['show'],
+			'href'                => 'act=show',
+			'icon'                => 'show.gif'
+		]
+	],
+  	// Palettes
+	'palettes' => [
+		'__selector__' => ['mailUseCustomText'],
 		'default'      => '{config_legend},memberGroup,priority;{email_legend},sender,senderName,mailCopy,mailBlindCopy,mailUseCustomText'
-	),
-
+	],
 	// Subpalettes
-	'subpalettes' => array
-	(
-		'mailUseCustomText' => 'mailTextKey'
-	),
-
+	'subpalettes' => ['mailUseCustomText' => 'mailTextKey'],
 	// Fields
-	'fields' => array
-	(
-		'id' => array
-		(
-			'sql'                   => "int(10) unsigned NOT NULL auto_increment"
-		),
-		'tstamp' => array
-		(
-			'sql'                   => "int(10) unsigned NOT NULL default '0'"
-		),
-		'memberGroup' => array
-		(
-			'label'                 => &$GLOBALS['TL_LANG']['tl_geburtstagsmail']['memberGroup'],
-			'exclude'               => true,
-			'inputType'             => 'select',
-			'foreignKey'            => 'tl_member_group.name',
-			'filter'                => true,
-			'eval'                  => array('mandatory'=>true, 'unique'=>true, 'includeBlankOption'=>true, 'tl_class'=>'w50'),
-			'sql'                   => "int(10) unsigned NOT NULL default '0'"
-		),
+	'fields' => [
+ 		'id' => [
+ 			'sql'		=> "int(10) unsigned NOT NULL auto_increment"
+		],
+		'tstamp' => [
+			'sql'		=> "int(10) unsigned NOT NULL default '0'"
+		],
+		'memberGroup' => [
+			'label'		=> &$GLOBALS['TL_LANG']['tl_geburtstagsmail']['memberGroup'],
+			'exclude'	=> true,
+			'inputType'	=> 'select',
+			'foreignKey'	=> 'tl_member_group.name',
+			'filter'	=> true,
+			'eval'		=> array('mandatory'=>true, 'unique'=>true, 'includeBlankOption'=>true, 'tl_class'=>'w50'),
+			'sql'		=> "int(10) unsigned NOT NULL default '0'"
+		],
 		'priority' => array
 		(
 			'label'                 => &$GLOBALS['TL_LANG']['tl_geburtstagsmail']['priority'],
@@ -188,8 +157,8 @@ $GLOBALS['TL_DCA']['tl_geburtstagsmail'] = array
 			'eval'                  => array('mandatory'=>true, 'maxlength'=>20, 'spaceToUnderscore'=>true, 'tl_class'=>'w50'),
 			'sql'                   => "varchar(20) NOT NULL default ''"
 		)
-	)
-);
+	]
+];
 
 
 /** class geburtstagsmail extends Backend
