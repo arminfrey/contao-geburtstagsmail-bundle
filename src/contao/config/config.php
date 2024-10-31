@@ -1,7 +1,7 @@
 <?php
 namespace Arminfrey\GeburtstagsmailBundle\Contao\Config;
 
-//use Arminfrey\GeburtstagsmailBundle\ArminfreyGeburtstagsmailBundle;
+use Arminfrey\GeburtstagsmailBundle\ArminfreyGeburtstagsmailBundle;
 use Arminfrey\GeburtstagsmailBundle\Model\ArminfreyGeburtstagsmailModel;
 use Arminfrey\GeburtstagsmailBundle\Service\SendMailService;
 
