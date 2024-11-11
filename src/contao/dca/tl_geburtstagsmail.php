@@ -7,7 +7,9 @@
  * @license    LGPL
  */
 
-namespace Arminfrey\GeburtstagsmailBundle\contao\dca;
+declare(strict_types=1);
+
+//namespace Arminfrey\GeburtstagsmailBundle\contao\dca;
 
 use Contao\Backend;
 use Contao\DataContainer;
