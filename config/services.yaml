@@ -4,10 +4,6 @@ services:
         autoconfigure: true
         public: true
 
-    Arminfrey\GeburtstagsmailBundle\:
-        resource: '../src/*'
-        exclude: '../src/{Resources,Test,Widget}'
-
-    Arminfrey\GeburtstagsmailBundle\Service\SendMailService:
+   Arminfrey\GeburtstagsmailBundle\Service\SendMailService:
         arguments:
             $connection: '@doctrine.dbal.default_connection'
