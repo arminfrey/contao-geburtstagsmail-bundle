@@ -4,7 +4,7 @@ services:
         autoconfigure: true
         public: true
 
-    Arminfrey\GeburtstagsmailBundle:
+    Arminfrey\GeburtstagsmailBundle\:
         resource: ../src/*
 
     Arminfrey\GeburtstagsmailBundle\Service\SendMailService:
