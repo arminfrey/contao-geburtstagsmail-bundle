@@ -5,8 +5,8 @@ services:
         public: true
 
     Arminfrey\GeburtstagsmailBundle\:
-        resource: /src
-        exclude: /src/{Resources,Test,Widget}
+        resource: '../src/*'
+        exclude: '../src/{Resources,Test,Widget}'
 
     Arminfrey\GeburtstagsmailBundle\Service\SendMailService:
         arguments:
