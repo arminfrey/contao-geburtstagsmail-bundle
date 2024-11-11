@@ -1,5 +1,5 @@
 <?php
-namespace Arminfrey\GeburtstagsmailBundle\contao\config;
+//namespace Arminfrey\GeburtstagsmailBundle\contao\config;
 
 /*use Arminfrey\GeburtstagsmailBundle\ArminfreyGeburtstagsmailBundle;
 use Arminfrey\GeburtstagsmailBundle\Model\ArminfreyGeburtstagsmailModel;
