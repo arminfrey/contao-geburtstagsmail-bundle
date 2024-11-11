@@ -6,7 +6,7 @@ services:
 
     Arminfrey\GeburtstagsmailBundle\:
         resource: ../src
-        exclude: ../src/{Resources,Tests,Widget,contao/config}
+        exclude: ../src/{contao/config,contao/dca,contao/languages}
 
     Arminfrey\GeburtstagsmailBundle\Service\SendMailService:
         arguments:
