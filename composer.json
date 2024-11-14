@@ -23,7 +23,7 @@
             		"Arminfrey\\GeburtstagsmailBundle\\": "src/"
        		 },
 		"classmap": [
-            		"src/contao"
+            		"contao"
         		]
     	},
 	"extra":{
