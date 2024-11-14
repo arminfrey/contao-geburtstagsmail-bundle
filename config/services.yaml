@@ -5,7 +5,7 @@ services:
         public: true
 
     Arminfrey\GeburtstagsmailBundle\:
-        resource: ../src/*
+        resource: ../src/
 
     Arminfrey\GeburtstagsmailBundle\Service\SendMailService:
         arguments:
