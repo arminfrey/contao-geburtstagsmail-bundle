@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 /**
  * Contao Open Source CMS
@@ -191,6 +191,7 @@ class tl_geburtstagsmail extends Backend
 	 */
 	public function addIcon($row, $label)
 	{
+		var_dump($row);
 		$image = 'mgroup';
 		$disabled = ($row['start'] !== '' && $row['start'] > time()) || ($row['stop'] !== '' && $row['stop'] <= time());
 		$icon = $image;
