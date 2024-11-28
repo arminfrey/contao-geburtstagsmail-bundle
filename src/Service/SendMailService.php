@@ -92,7 +92,7 @@ class SendMailService
 			. "WHERE tl_member.disable = 0 "
 			. "AND DATE_FORMAT(CURRENT_DATE(), '%d.%c') = DATE_FORMAT(DATE_ADD(FROM_UNIXTIME(0), interval tl_member.dateOfBirth second), '%d.%c') "
 			. "ORDER BY tl_member.id, tl_geburtstagsmail.priority DESC");
-
+		var_dump($config);
 		foreach ($config as $conf) 
 		{
 				if(($GLOBALS['TL_CONFIG']['birthdayMailerDeveloperMode'] && 
