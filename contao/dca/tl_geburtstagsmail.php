@@ -40,7 +40,7 @@ $GLOBALS['TL_DCA']['tl_geburtstagsmail'] = [
 			]
 	],
 	'label' => [
-		'fields'                => !empty(['tl_member_group.name', 'priority']),
+		'fields'                => ['MemberGroup:tl_member_group.name', 'priority'],
 		//'format'                => '%s <span style="color:#b3b3b3; padding-left:3px;">[' . $GLOBALS['TL_LANG']['tl_birthdaymail']['priority'][0] . ': %s]</span>',
 		'label_callback'        => ['tl_geburtstagsmail', 'addIcon'] 
 	],
@@ -191,7 +191,7 @@ class tl_geburtstagsmail extends Backend
 	 *
 	 * @return string
 	 */
-	public function addIcon($row, $label)
+	/*public function addIcon($row, $label)
 	{
 		
 		$image = 'mgroup';
@@ -210,5 +210,33 @@ class tl_geburtstagsmail extends Backend
 			Image::getUrl($icon . '--disabled'),
 			$label
 		);
+	}*/
+
+	
+}
+
+	public function addIcon($row, $label)
+	{
+		if (empty($row)) {
+    			\Contao\Log::add('Row data is empty for icon generation.', 'GeburtstagsmailBundle addIcon()', TL_ERROR);
+		}
+    		// Check that row has necessary keys
+    		if (!isset($row['memberGroup'], $row['start'], $row['stop'], $row['disable'])) {
+        		return $label; // Or handle appropriately
+    		}
+
+    		$image = 'mgroup';
+    		$disabled = ($row['start'] !== '' && $row['start'] > time()) || ($row['stop'] !== '' && $row['stop'] <= time());
+
+    		if ($disabled || $row['disable']) {
+			$image .= '--disabled';
+    		}
+
+    		return sprintf('<div class="list_icon" style="background-image:url(\'%s\')" data-icon="%s" data-icon-disabled="%s">%s</div>',
+        	Image::getUrl($image),
+        	Image::getUrl($image),
+        	Image::getUrl($image . '--disabled'),
+        	$label
+    		);
 	}
 }
