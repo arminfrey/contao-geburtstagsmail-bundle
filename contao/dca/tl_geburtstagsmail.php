@@ -156,7 +156,7 @@ $GLOBALS['TL_DCA']['tl_geburtstagsmail'] = [
 ];
 
 
-/** class geburtstagsmail extends Backend
+/*class geburtstagsmail extends Backend
 {
 	
 	public function addIcon($row, $label)
