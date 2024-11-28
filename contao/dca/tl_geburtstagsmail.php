@@ -21,7 +21,7 @@ use Contao\Image;
 /**
  * Table tl_birthdaymailer
  */
-printf("hier ist es");
+
 $GLOBALS['TL_DCA']['tl_geburtstagsmail'] = [
 	// Config
 	'config' => [
@@ -40,7 +40,7 @@ $GLOBALS['TL_DCA']['tl_geburtstagsmail'] = [
 			]
 	],
 	'label' => [
-		'fields'                => ['memberGroup:tl_member_group.name', 'priority'],
+		'fields'                => ['tl_member_group.name', 'priority'],
 		//'format'                => '%s <span style="color:#b3b3b3; padding-left:3px;">[' . $GLOBALS['TL_LANG']['tl_birthdaymail']['priority'][0] . ': %s]</span>',
 		'label_callback'        => ['tl_geburtstagsmail', 'addIcon'] 
 	],
@@ -81,7 +81,7 @@ $GLOBALS['TL_DCA']['tl_geburtstagsmail'] = [
 		]
 	],
   	// Palettes
-	printf("oder eher hier");
+	
 	'palettes' => [
 		'__selector__' => ['mailUseCustomText'],
 		'default'      => '{config_legend},memberGroup,priority;{email_legend},sender,senderName,mailCopy,mailBlindCopy,mailUseCustomText'
@@ -193,7 +193,7 @@ class tl_geburtstagsmail extends Backend
 	 */
 	public function addIcon($row, $label)
 	{
-		var_dump($row);
+		
 		$image = 'mgroup';
 		$disabled = ($row['start'] !== '' && $row['start'] > time()) || ($row['stop'] !== '' && $row['stop'] <= time());
 		$icon = $image;
