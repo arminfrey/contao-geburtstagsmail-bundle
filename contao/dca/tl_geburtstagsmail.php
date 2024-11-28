@@ -40,7 +40,7 @@ $GLOBALS['TL_DCA']['tl_geburtstagsmail'] = [
 			]
 	],
 	'label' => [
-		'fields'                => ['tl_member_group.name', 'priority'],
+		'fields'                => !empty(['tl_member_group.name', 'priority']),
 		//'format'                => '%s <span style="color:#b3b3b3; padding-left:3px;">[' . $GLOBALS['TL_LANG']['tl_birthdaymail']['priority'][0] . ': %s]</span>',
 		'label_callback'        => ['tl_geburtstagsmail', 'addIcon'] 
 	],
