@@ -103,6 +103,7 @@ class SendMailService
 				$blnAbortSendMail = false;
 				if (isset($GLOBALS['TL_HOOKS']['birthdayMailerAbortSendMail']) && is_array($GLOBALS['TL_HOOKS']['birthdayMailerAbortSendMail']))
 				{
+					var_dump($GLOBALS['TL_HOOKS']['birthdayMailerAbortSendMail']);
 					foreach ($GLOBALS['TL_HOOKS']['birthdayMailerAbortSendMail'] as $callback)
 					{
 						$this->import($callback[0]);
