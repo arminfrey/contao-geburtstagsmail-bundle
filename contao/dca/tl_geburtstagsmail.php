@@ -21,6 +21,7 @@ use Contao\Image;
 /**
  * Table tl_birthdaymailer
  */
+printf("hier ist es");
 $GLOBALS['TL_DCA']['tl_geburtstagsmail'] = [
 	// Config
 	'config' => [
@@ -80,6 +81,7 @@ $GLOBALS['TL_DCA']['tl_geburtstagsmail'] = [
 		]
 	],
   	// Palettes
+	printf("oder eher hier");
 	'palettes' => [
 		'__selector__' => ['mailUseCustomText'],
 		'default'      => '{config_legend},memberGroup,priority;{email_legend},sender,senderName,mailCopy,mailBlindCopy,mailUseCustomText'
