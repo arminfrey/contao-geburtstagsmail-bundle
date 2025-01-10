@@ -1,15 +1,6 @@
 <?php
 
 /**
- * Contao Open Source CMS
- * Copyright (C) 2005-2015 Leo Feyer
- 
- * @author     Cliff Parnitzky
- * @package    GeburtstagsmailBundle
- * @license    LGPL
- */
-
-/**
  * Fields
  */
 $GLOBALS['TL_LANG']['tl_geburtstagsmail']['memberGroup']       = array('Mitgliedergruppe', 'Bitte wählen Sie die Mitgliedergruppe aus, die automatische Geburtstagsemails erhalten soll.');
@@ -24,8 +15,8 @@ $GLOBALS['TL_LANG']['tl_geburtstagsmail']['mailTextKey']       = array('Schlüss
 /**
  * Legends
  */
-$GLOBALS['TL_LANG']['tl_geburtstagsmail']['config_legend'] = 'Konfiguration';
-$GLOBALS['TL_LANG']['tl_geburtstagsmail']['email_legend']  = 'Emaileinstellungen';
+$GLOBALS['TL_LANG']['tl_geburtstagsmail']['config_legend'] = array('Konfiguration');
+$GLOBALS['TL_LANG']['tl_geburtstagsmail']['email_legend']  = array('Emaileinstellungen');
 
 /**
  * Buttons
@@ -40,15 +31,15 @@ $GLOBALS['TL_LANG']['tl_geburtstagsmail']['delete']           = array('Konfigura
 /**
  * Manual execution messages
  */
-$GLOBALS['TL_LANG']['tl_geburtstagsmail']['manualExecution']['headline']          = "Manuelle Ausführung";
-$GLOBALS['TL_LANG']['tl_geburtstagsmail']['manualExecution']['sendingHeadline']   = "Systemnachrichten";
-$GLOBALS['TL_LANG']['tl_geburtstagsmail']['manualExecution']['successMessage']    = "%s E-Mails wurden erfolgreich versendet.";
-$GLOBALS['TL_LANG']['tl_geburtstagsmail']['manualExecution']['failureMessage']    = "%s E-Mails konnten wegen Fehler nicht gesendet werden.";
-$GLOBALS['TL_LANG']['tl_geburtstagsmail']['manualExecution']['failureTableHead']  = "Fehler";
-$GLOBALS['TL_LANG']['tl_geburtstagsmail']['manualExecution']['failureInfo']       = "Bitte prüfen Sie das Contao <b>System-Log</b> oder die Log-Dateien (<i>birthdaymails.log</i>, <i>error.log</i>) um weitere Informationen zu den Fehlern zu erhalten.";
-$GLOBALS['TL_LANG']['tl_geburtstagsmail']['manualExecution']['abortionMessage']   = "%s E-Mails konnten wegen Abbrüchen (durch Hooks) nicht gesendet werden.";
-$GLOBALS['TL_LANG']['tl_geburtstagsmail']['manualExecution']['abortionTableHead'] = "Abbrüche";
-$GLOBALS['TL_LANG']['tl_geburtstagsmail']['manualExecution']['abortionInfo']      = "Bitte prüfen Sie das Contao <b>System-Log</b> um weitere Informationen zu den Abbrüchen zu erhalten.";
-$GLOBALS['TL_LANG']['tl_geburtstagsmail']['manualExecution']['developerMessage']  = "Sie befinden sich im Entwicklermodus. Alle E-Mails werden an die folgende Entwickler E-Mail-Adresse gesendet: <i>%s</i>. Bitte stellen Sie sicher, dass dies eine gültige E-Mail-Adresse ist. Änderungen können in den <b>Einstellungen</b> vorgenommen werden.";
+$GLOBALS['TL_LANG']['tl_geburtstagsmail']['manualExecution']['headline']          = array("Manuelle Ausführung");
+$GLOBALS['TL_LANG']['tl_geburtstagsmail']['manualExecution']['sendingHeadline']   = array("Systemnachrichten");
+$GLOBALS['TL_LANG']['tl_geburtstagsmail']['manualExecution']['successMessage']    = array("%s E-Mails wurden erfolgreich versendet.");
+$GLOBALS['TL_LANG']['tl_geburtstagsmail']['manualExecution']['failureMessage']    = array("%s E-Mails konnten wegen Fehler nicht gesendet werden.");
+$GLOBALS['TL_LANG']['tl_geburtstagsmail']['manualExecution']['failureTableHead']  = array("Fehler");
+$GLOBALS['TL_LANG']['tl_geburtstagsmail']['manualExecution']['failureInfo']       = array("Bitte prüfen Sie das Contao <b>System-Log</b> oder die Log-Dateien (<i>birthdaymails.log</i>, <i>error.log</i>) um weitere Informationen zu den Fehlern zu erhalten.");
+$GLOBALS['TL_LANG']['tl_geburtstagsmail']['manualExecution']['abortionMessage']   = array("%s E-Mails konnten wegen Abbrüchen (durch Hooks) nicht gesendet werden.");
+$GLOBALS['TL_LANG']['tl_geburtstagsmail']['manualExecution']['abortionTableHead'] = array("Abbrüche");
+$GLOBALS['TL_LANG']['tl_geburtstagsmail']['manualExecution']['abortionInfo']      = array("Bitte prüfen Sie das Contao <b>System-Log</b> um weitere Informationen zu den Abbrüchen zu erhalten.");
+$GLOBALS['TL_LANG']['tl_geburtstagsmail']['manualExecution']['developerMessage']  = array("Sie befinden sich im Entwicklermodus. Alle E-Mails werden an die folgende Entwickler E-Mail-Adresse gesendet: <i>%s</i>. Bitte stellen Sie sicher, dass dies eine gültige E-Mail-Adresse ist. Änderungen können in den <b>Einstellungen</b> vorgenommen werden.");
 
 ?>
